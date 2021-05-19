@@ -1,0 +1,52 @@
+@navbg: #f2a535;
+@altnavbg: #905a09;
+@misc: #1a4c48;
+@altmisc: #41beb4;
+@hr: #bfdddc;
+@althr: #58a7a4;
+@white: #fff;
+@black: #000;
+
+.dkModeM {
+    background-color: @black;
+    color: @white;
+    hr {
+        background-color: @althr;
+    }
+}
+.ltModeM {
+    background-color: @white;
+    color: @black;
+    hr{
+        background-color: @hr;
+    }
+}
+.dkModeN {
+    background-color: @altnavbg;
+    color: @white;
+}
+.ltModeN {
+    background-color: @navbg;
+    color: @black;
+}
+.dkModeMisc {
+    background-color: @altmisc;
+    color: @black;
+}
+.ltModeMisc {
+    background-color: @misc;
+    color: @white;
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

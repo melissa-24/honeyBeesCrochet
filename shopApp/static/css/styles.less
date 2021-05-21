@@ -1,0 +1,130 @@
+@navbg: #f2a535;
+@altnavbg: #905a09;
+@misc: #1a4c48;
+@hr: #bfdddc;
+@althr: #58a7a4;
+@white: #fff;
+@black: #000;
+
+.dkModeM {
+    background-color: @black;
+    color: @white;
+    hr {
+        background-color: @althr;
+    }
+    .hidden {
+        background-color: @misc;
+        height: .2em;
+        width: .2em;
+    }
+}
+.ltModeM {
+    background-color: @white;
+    color: @black;
+    hr{
+        background-color: @hr;
+    }
+    .hidden {
+        background-color: @misc;
+        height: .2em;
+        width: .2em;
+    }
+}
+.dkModeN {
+    background-color: @altnavbg;
+    color: @white;
+    a {
+        color: @hr;
+        text-decoration: none;
+    }
+}
+.ltModeN {
+    background-color: @navbg;
+    color: @black;
+    a {
+        color: @misc;
+        text-decoration: none;
+    }
+}
+.dkModeMisc {
+    background-color: @white;
+    color: @misc;
+}
+.ltModeMisc {
+    background-color: @misc;
+    color: @white;
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    .flexcolumn();
+    .ltModeM();
+
+    button {
+        .ltModeMisc();
+    }
+    header {
+        .flexcolumn();
+        .ltModeN();
+        width: 95%;
+        
+        .header {
+            .flexrow();
+
+            img {
+                width: 3.5em;
+                margin: 1em 3em;
+            }
+            h1 {
+                margin: 1em 3em;
+            }
+        }
+        nav {
+            .flexrow();
+            a {
+                padding: 1em;
+            }
+        }
+
+    }
+    .main {
+        .flexcolumn();
+        .ltModeM();
+        min-height: 400px;
+    }
+    footer {
+        .flexcolumn();
+        .ltModeN();
+        min-height: 3em;
+        min-width: 4em;
+    }
+}
+body.darkMode {
+        .dkModeM();
+
+        button {
+            .dkModeMisc();
+        }
+
+        header {
+            .dkModeN();
+        }
+        .main {
+            .dkModeM();
+        }
+        footer {
+            .dkModeN();
+        }
+}

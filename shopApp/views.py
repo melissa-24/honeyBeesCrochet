@@ -7,11 +7,28 @@ import bcrypt
 
 # ------ Main Landing Page ------
 def index(request):
+    # user = User.objects.get(id=request.session['user_id'])
+    # context = {
+    #     'user': user,
+    # }
+    # return render(request, 'index.html', context)
     return render(request, 'index.html')
+
+# ------ About Landing Page ------
+def about(request):
+    return render(request, 'about.html')
+
+# ------ Contact Landing Page ------
+def contact(request):
+    return render(request, 'contact.html')
+
+# ------ Shop Landing Page ------
+def shop(request):
+    return render(request, 'shop.html')
 
 # ------ Login Landing Page ------
 def login(request):
-    pass
+    return render(request, 'logreg/login.html')
 
 # ------ Login Route ------
 def access(request):
@@ -25,13 +42,9 @@ def register(request):
 def signup(request):
     pass
 
-# ------ Store Landing Page ------
-def store(request):
-    pass
-
 # ------ Hangouts Landing Page ------
 def hangouts(request):
-    pass
+    return render(request, 'hangouts.html')
 
 # ------ Hangouts Login Landing Page ------
 # Same table as regular log in just redirects back to hangouts

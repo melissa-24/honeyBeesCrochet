@@ -16,6 +16,7 @@
         background-color: @misc;
         height: .2em;
         width: .2em;
+        margin: .2em;
     }
 }
 .ltModeM {
@@ -28,6 +29,7 @@
         background-color: @misc;
         height: .2em;
         width: .2em;
+        margin: .2em;
     }
 }
 .dkModeN {
@@ -54,7 +56,6 @@
     background-color: @misc;
     color: @white;
 }
-
 .flexrow {
     display: flex;
     flex-direction: row;
@@ -79,6 +80,7 @@ body {
         .flexcolumn();
         .ltModeN();
         width: 95%;
+        border-bottom: 4px groove @hr;
         
         .header {
             .flexrow();
@@ -102,13 +104,63 @@ body {
     .main {
         .flexcolumn();
         .ltModeM();
-        min-height: 400px;
+        width: 95%;
+
+        .homeImg {
+            width: 70%;
+            max-height: 400px;
+            object-fit: cover;
+            margin: 1em;
+        }
+        .homeButton {
+            margin-top: -26px;
+            width: 15em;
+            padding: .3em;
+
+            a {
+                color: @white;
+                text-decoration: none;
+            }
+        }
+        .section {
+            .flexrow();
+            margin: 1em;
+             
+            img {
+                width: 250px;
+                margin: 1em;
+            }
+
+            .aboutSection {
+                .flexcolumn();
+                margin: 1em;
+            }
+        }
+        .aboutSection {
+            .flexcolumn();
+            margin: 1em;
+        }
     }
     footer {
         .flexcolumn();
-        .ltModeN();
+        border-top: 4px groove @hr;
         min-height: 3em;
         min-width: 4em;
+        margin: 1em;
+        width: 95%;
+
+            section {
+                .flexrow();
+                margin: 1em;
+
+                img {
+                    width: 30px;
+                    margin: 1em;
+                }
+                a {
+                    color: @black;
+                }
+            }
     }
 }
 body.darkMode {
@@ -123,8 +175,19 @@ body.darkMode {
         }
         .main {
             .dkModeM();
+
+            .homeButton {
+                a {
+                    color: @misc;
+                }
+            }
         }
         footer {
-            .dkModeN();
+
+            section {
+                a {
+                    color: @white;
+                }
+            }
         }
 }

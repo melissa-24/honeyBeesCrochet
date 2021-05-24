@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HoneyBee's Crochet</title>
+    <title>About - HoneyBee's Crochet</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
@@ -13,10 +13,7 @@
     <header>
         <section class='header'>
             <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
-            {% comment %}
-            <h1>Welcome to HoneyBee's Crochet {{user.firstName}}</h1>
-            {% endcomment %}
-            <h1>Welcome to HoneyBee's Crochet</h1>
+            <h1>HoneyBee's Crochet</h1>
         </section>
         <nav>
             <a href='/'>Home</a>
@@ -29,8 +26,17 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-        <img src='https://images.craftsnherbs.com/crochet/shawl.JPG' alt='Shawl' class='homeImg' />
-        <button class='homeButton'><a href='/shop/'>Shop Now!</a></button>
+        <div class='section'>
+            <img src='https://images.craftsnherbs.com/melissa.png' alt='Melissa' />
+            <div class='aboutSection'>
+                <h2>About the Owner</h2>
+                <h4>I am HoneyBee, which in Greek means Melissa</h4>
+                <p>I love making amazing things with a hook and yarn</p>
+            </div>
+        </div>
+        <div class='aboutSection'>
+            <p>I have been crocheting since I was 7 years old, well over 30 year now. I love making things, more when I can make someone smile</p>
+        </div>
     </div>
     <footer>
         <section>

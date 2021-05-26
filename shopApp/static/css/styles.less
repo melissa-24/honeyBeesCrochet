@@ -140,6 +140,15 @@ body {
             .flexcolumn();
             margin: 1em;
         }
+        ul {
+            li {
+                margin: 1em;
+                a {
+                    text-decoration: none;
+                    color:@altnavbg;
+                }
+            }
+        }
     }
     footer {
         .flexcolumn();
@@ -159,6 +168,7 @@ body {
                 }
                 a {
                     color: @black;
+                    text-decoration: none;
                 }
             }
     }
@@ -179,6 +189,13 @@ body.darkMode {
             .homeButton {
                 a {
                     color: @misc;
+                }
+            }
+            ul {
+                li {
+                    a {
+                        color: @altnavbg;
+                    }
                 }
             }
         }

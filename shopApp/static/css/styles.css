@@ -175,6 +175,13 @@ body .main .aboutSection {
   align-items: center;
   margin: 1em;
 }
+body .main ul li {
+  margin: 1em;
+}
+body .main ul li a {
+  text-decoration: none;
+  color: #905a09;
+}
 body footer {
   display: flex;
   flex-direction: column;
@@ -199,6 +206,7 @@ body footer section img {
 }
 body footer section a {
   color: #000;
+  text-decoration: none;
 }
 body.darkMode {
   background-color: #000;
@@ -240,6 +248,9 @@ body.darkMode .main .hidden {
 }
 body.darkMode .main .homeButton a {
   color: #1a4c48;
+}
+body.darkMode .main ul li a {
+  color: #905a09;
 }
 body.darkMode footer section a {
   color: #fff;

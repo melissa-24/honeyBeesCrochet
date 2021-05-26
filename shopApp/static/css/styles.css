@@ -96,6 +96,7 @@ body .hidden {
 body button {
   background-color: #1a4c48;
   color: #fff;
+  padding: 0.5em;
 }
 body header {
   display: flex;
@@ -141,7 +142,7 @@ body .main {
   background-color: #fff;
   color: #000;
   width: 95%;
-  margin: 1em;
+  margin: 1em 1.5em;
 }
 body .main hr {
   background-color: #bfdddc;

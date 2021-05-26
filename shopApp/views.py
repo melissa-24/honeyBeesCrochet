@@ -128,7 +128,17 @@ def dashboard(request):
 
 # ------ Add to Store Landing Page ------
 def addProduct(request):
-    return render(request, 'protected/admin/products.html')
+    if 'user_id' not in request.session:
+        return redirect('/login/')
+    user = User.objects.get(id=request.session['user_id'])
+    if user.acct_id == 1:
+        messages.error(request, 'Sorry you do not have access to this content')
+        return redirect('/shop/')
+    else:
+        context = {
+            'user': user,
+        }
+        return render(request, 'protected/admin/products.html', context)
 
 def addCategory(request):
     return render(request, 'protected/admin/categories.html')
@@ -169,10 +179,17 @@ def deleteProfile(request):
 
 # ------ Make a Post Landing Page ------ 
 def addPost(request):
-    pass
+    if 'user_id' not in request.session:
+        messages.error(request, 'You need to be logged in to post a message')
+        return redirect('/hangouts/login.')
 
 def createPost(request):
-    pass
+    Post.objects.create(
+        postTitle=request.POST['postTitle'],
+        postContent=request.POST['postContent'],
+        postAuthor=request.POST['postAuthor'],
+        postTopic=request.POST['postTopic'],
+    )
 
 def viewPost(request):
     pass

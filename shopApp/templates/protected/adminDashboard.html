@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{user.username}}'s Admin Dashboard</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
@@ -25,10 +25,10 @@
         </nav>
         <nav>
             <a href='/dashboard/'>Dashboard</a>
-            <a href='/admin/topics/'>Topics</a>
-            <a href='/admin/categories/'>Categories</a>
-            <a href='/admin/products/'>Products</a>
-            <a href='/admin/users/'>Users</a>
+            <a href='/theAdmin/topics/'>Topics</a>
+            <a href='/theAdmin/categories/'>Categories</a>
+            <a href='/theAdmin/products/'>Products</a>
+            <a href='/theAdmin/users/'>Users</a>
         </nav>
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>

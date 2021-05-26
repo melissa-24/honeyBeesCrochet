@@ -5,6 +5,8 @@
 @althr: #58a7a4;
 @white: #fff;
 @black: #000;
+@formbg: #f2a6357e;
+@altformbg: #905a097e;
 
 .dkModeM {
     background-color: @black;
@@ -40,8 +42,24 @@
         text-decoration: none;
     }
 }
+.dkModeF {
+    background-color: @altformbg;
+    color: @white;
+    a {
+        color: @hr;
+        text-decoration: none;
+    }
+}
 .ltModeN {
     background-color: @navbg;
+    color: @black;
+    a {
+        color: @misc;
+        text-decoration: none;
+    }
+}
+.ltModeF {
+    background-color: @formbg;
     color: @black;
     a {
         color: @misc;
@@ -105,6 +123,7 @@ body {
         .flexcolumn();
         .ltModeM();
         width: 95%;
+        margin: 1em;
 
         .homeImg {
             width: 70%;
@@ -146,6 +165,49 @@ body {
                 a {
                     text-decoration: none;
                     color:@altnavbg;
+                }
+            }
+        }
+        .login {
+            .ltModeF();
+            .flexcolumn();
+            background-image: url('/static/images/ltChatBG.jpg');
+            padding: 2em;
+            min-height: 400px;
+            width: 500px;
+
+            form {
+                .flexcolumn();
+                
+                section {
+                    .flexrow();
+                    margin: 1em;
+
+                    label {
+                        margin: 0 1em;
+                    }
+                }
+            }
+        }
+        .all {
+            .ltModeM();
+            .flexcolumn();
+        }
+        .form {
+            .ltModeF();
+            .flexcolumn();
+            padding: 2em;
+
+            form {
+                .flexcolumn();
+                
+                section {
+                    .flexrow();
+                    margin: 1em;
+
+                    label {
+                        margin: 0 1em;
+                    }
                 }
             }
         }
@@ -197,6 +259,16 @@ body.darkMode {
                         color: @altnavbg;
                     }
                 }
+            }
+            .login {
+                .dkModeF();
+                background-image: url('/static/images/dkChatBG.jpg');
+            }
+            .all {
+                .dkModeM();
+            }
+            .form {
+                .dkModeF();
             }
         }
         footer {

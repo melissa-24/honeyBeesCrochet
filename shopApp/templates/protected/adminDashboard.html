@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - HoneyBee's Crochet</title>
+    <title>Document</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
@@ -13,7 +13,7 @@
     <header>
         <section class='header'>
             <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
-            <h1>HoneyBee's Crochet</h1>
+            <h1>Welcome to HoneyBee's Crochet</h1>
         </section>
         <nav>
             <a href='/'>Home</a>
@@ -21,16 +21,19 @@
             <a href='/about/'>About</a>
             <a href='/contact/'>Contact</a>
             <a href='/hangouts/'>HoneyBee's Hangouts</a>
-            <a href='/login/'>Log In/Sign Up</a>
+            <a href='/logout/'>Logout</a>
+        </nav>
+        <nav>
+            <a href='/dashboard/'>Dashboard</a>
+            <a href='/admin/topics/'>Topics</a>
+            <a href='/admin/categories/'>Categories</a>
+            <a href='/admin/products/'>Products</a>
+            <a href='/admin/users/'>Users</a>
         </nav>
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-        <h2>Reaching out and Contacting HoneyBee's Crochet</h2>
-        <ul>
-            <li><b>Email: </b><a href='mailto:honeybee@honeybeescrochet.com' target='_blank'>honeybee@honeybeescrochet.com</a></li>
-            <li><b>FaceBook: </b><a href='https://www.facebook.com/honeybeescrochet' target="_blank">Facebook page</a></li>
-        </ul>
+        <h1>Admin Dashboard for {{user.firstName}}</h1>
     </div>
     <footer>
         <section>

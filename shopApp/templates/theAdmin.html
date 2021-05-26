@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - HoneyBee's Crochet</title>
+    <title>Document</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
@@ -13,7 +13,7 @@
     <header>
         <section class='header'>
             <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
-            <h1>HoneyBee's Crochet</h1>
+            <h1>Welcome to HoneyBee's Crochet</h1>
         </section>
         <nav>
             <a href='/'>Home</a>
@@ -26,11 +26,21 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-        <h2>Reaching out and Contacting HoneyBee's Crochet</h2>
-        <ul>
-            <li><b>Email: </b><a href='mailto:honeybee@honeybeescrochet.com' target='_blank'>honeybee@honeybeescrochet.com</a></li>
-            <li><b>FaceBook: </b><a href='https://www.facebook.com/honeybeescrochet' target="_blank">Facebook page</a></li>
-        </ul>
+        <div class='all'>
+            {% for acct in accts %}
+            <h3>{{acct.acctType}}</h3>
+            {% endfor %}
+        </div>
+        <div class='form'>
+            <form action='/theAdmin/createAcct/' method='post'>
+                {% csrf_token %}
+                <section>
+                    <label for='acctType'>Acct Type</label>
+                    <input name='acctType' type='text'>
+                </section>
+                <button>Submit</button>
+            </form>
+        </div>
     </div>
     <footer>
         <section>

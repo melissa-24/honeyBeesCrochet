@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log-in - Honeybee's Crochet</title>
+    <title>Document</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
@@ -27,9 +27,8 @@
     </header>
     <div class='main'>
         <div class='login'>
-            <h3>To post in HoneyBee's Hangouts you will need to be logged in, but most of the site as of right now does not require this</h3>
             <nav>
-                <p>Don't have an account? <a href='/login/register/'>Sign Up</a></p>
+                <p>Already have an account? <a href='login/'>Sign In</a></p>
                 {% if messages %}
                 <section class='messages'>
                     {% for message in messages %}
@@ -38,17 +37,37 @@
                 </section>
                 {% endif %}
             </nav>
-            <form action='/login/access/' method='post'>
+            <form action='/login/signup/' method='post'>
                 {% csrf_token %}
                 <section>
-                    <label for='username'>Username</label>
-                    <input name='username' id='username' type='text'>
+                    <label for='firstName'>First Name:</label>
+                    <input type='text' name='firstName' id='firstName'>
                 </section>
                 <section>
-                    <label for='password'>Password</label>
-                    <input name='password' id='password' type='password'>
+                    <label for='lastName'>Last Name:</label>
+                    <input type='text' name='lastName' id='lastName'>
                 </section>
-                <button>Sign In</button>
+                <section>
+                    <label for='username'>Username:</label>
+                    <input type='text' name='username' id='username'>
+                </section>
+                <section>
+                    <label form='email'>Email Address:</label>
+                    <input type='email' name='email' id='email'>
+                </section>
+                <section style="display: none;">
+                    <label form='acct'>Chose Your Account Type:</label>
+                    <input type='text' name='acct' value='1'>
+                </section>
+                <section>
+                    <label for='password'>Password:</label>
+                    <input type='password' name='password' id='password'>
+                </section>
+                <section>
+                    <label for='confirm'>Confirm Password</label>
+                    <input type='password' name='confirm' id='confirm'>
+                </section>
+                <button>Submit and Login</button>
             </form>
         </div>
     </div>
@@ -57,7 +76,6 @@
             <img src='https://images.craftsnherbs.com/beelogo.jpg' alt='BeeDev Services Logo' />
             <a href='https://beedev-services.com' target="_blank"><h4>© 2021 by BeeDev Services</h4></a>
         </section>
-        <a href='/theAdmin/' class='hidden'></a>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{% static 'js/scripts.js' %}"></script>

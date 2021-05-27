@@ -1,5 +1,6 @@
 .dkModeM {
   background-color: #000;
+  background-image: none;
   color: #fff;
 }
 .dkModeM hr {
@@ -13,6 +14,7 @@
 }
 .ltModeM {
   background-color: #fff;
+  background-image: url('/static/images/hexellence.png');
   color: #000;
 }
 .ltModeM hr {
@@ -42,6 +44,7 @@
 }
 .ltModeN {
   background-color: #f2a535;
+  background-image: url('/static/images/hexellence.png');
   color: #000;
 }
 .ltModeN a {
@@ -82,6 +85,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  background-image: url('/static/images/hexellence.png');
   color: #000;
 }
 body hr {
@@ -104,6 +108,7 @@ body header {
   justify-content: center;
   align-items: center;
   background-color: #f2a535;
+  background-image: url('/static/images/hexellence.png');
   color: #000;
   width: 95%;
   border-bottom: 4px groove #bfdddc;
@@ -140,6 +145,7 @@ body .main {
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  background-image: url('/static/images/hexellence.png');
   color: #000;
   width: 95%;
   margin: 1em 1.5em;
@@ -234,6 +240,7 @@ body .main .login form section label {
 }
 body .main .all {
   background-color: #fff;
+  background-image: url('/static/images/hexellence.png');
   color: #000;
   display: flex;
   flex-direction: column;
@@ -306,6 +313,7 @@ body footer section a {
 }
 body.darkMode {
   background-color: #000;
+  background-image: none;
   color: #fff;
 }
 body.darkMode hr {
@@ -331,6 +339,7 @@ body.darkMode header a {
 }
 body.darkMode .main {
   background-color: #000;
+  background-image: none;
   color: #fff;
 }
 body.darkMode .main hr {
@@ -359,6 +368,7 @@ body.darkMode .main .login a {
 }
 body.darkMode .main .all {
   background-color: #000;
+  background-image: none;
   color: #fff;
 }
 body.darkMode .main .all hr {

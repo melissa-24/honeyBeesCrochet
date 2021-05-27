@@ -1,0 +1,69 @@
+@import '../base.less';
+
+body.darkMode {
+    .dkModeM();
+
+    button {
+        .dkModeMisc();
+    }
+
+    header {
+        .dkModeN();
+        nav {
+            button {
+                a {
+                    color: @black;
+                }
+            }
+        }
+    }
+    .main {
+        nav {
+            .flexrow();
+            .dkModeN();
+            a {
+                padding: 1em;
+            }
+        }
+        .homeButton {
+            a {
+                color: @misc;
+            }
+        }
+        ul {
+            li {
+                a {
+                    color: @altnavbg;
+                }
+            }
+        }
+        .login {
+            .dkModeF();
+            background-image: url('/static/images/dkChatBG.jpg');
+        }
+        .all {
+            .dkModeM();
+        }
+        .form {
+            .dkModeF();
+        }
+        button {
+            .dkModeMisc();
+            padding: .5em;
+            a {
+                text-decoration: none;
+                color: @black;
+            }
+        }
+    }
+    footer {
+
+        section {
+            a {
+                color: @white;
+            }
+        }
+    }
+}
+
+@import 'dkHangouts.less';

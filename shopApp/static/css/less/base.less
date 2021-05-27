@@ -1,0 +1,104 @@
+@navbg: #f2a535;
+@altnavbg: #905a09;
+@misc: #1a4c48;
+@hr: #bfdddc;
+@althr: #58a7a4;
+@white: #fff;
+@black: #000;
+@formbg: #f2a6357e;
+@altformbg: #905a097e;
+
+
+.ltModeM {
+    background-color: @white;
+    background-image: url('/static/images/light-honeycomb.png');
+    color: @black;
+    hr{
+        background-color: @hr;
+    }
+    .hidden {
+        background-color: @misc;
+        height: .2em;
+        width: .2em;
+        margin: .2em;
+    }
+}
+.ltModeN {
+    background-color: @navbg;
+    // background-image: url('/static/images/hexellence.png');
+    color: @black;
+    a {
+        color: @misc;
+        text-decoration: none;
+    }
+}
+.ltModeF {
+    background-image: url('/static/images/ltChatBG.jpg');
+    color: @black;
+    border-radius: 20%;
+    a {
+        color: @misc;
+        text-decoration: none;
+    }
+}
+.ltModeH {
+    background-image: url('/static/images/lined-paper-2.png');
+    background-color: @white;
+    color: @black;
+}
+.ltModeMisc {
+    background-color: @misc;
+    color: @white;
+}
+
+.dkModeM {
+    background-color: @black;
+    background-image: url('/static/images/light-honeycomb-dark.png');
+    color: @white;
+    hr {
+        background-color: @althr;
+    }
+    .hidden {
+        background-color: @misc;
+        height: .2em;
+        width: .2em;
+        margin: .2em;
+    }
+}
+.dkModeN {
+    background-color: @altnavbg;
+    color: @white;
+    a {
+        color: @hr;
+        text-decoration: none;
+    }
+}
+.dkModeF {
+    background-color: @altformbg;
+    color: @white;
+    a {
+        color: @hr;
+        text-decoration: none;
+    }
+}
+.dkModeH {
+    background-color: @black;
+    background-image: url('/static/images/lined-paper-2.png');
+    color: @white;
+}
+.dkModeMisc {
+    background-color: @white;
+    color: @misc;
+}
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

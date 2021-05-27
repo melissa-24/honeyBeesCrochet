@@ -13,7 +13,7 @@ urlpatterns = [
     path('hangouts/', views.hangouts),
     path('hangouts/login/', views.hangoutLogin),
     path('hangouts/access/', views.hangoutAccess),
-    path('hangouts/register', views.hangoutRegister),
+    path('hangouts/register/', views.hangoutRegister),
     path('hangouts/signup/', views.hangoutSignup),
     path('theAdmin/', views.theAdmin),
     path('theAdmin/createAcct/', views.createAcct),

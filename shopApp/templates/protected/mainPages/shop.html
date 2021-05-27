@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangouts - HoneyBee's Crochet</title>
+    <title>The Shop - HoneyBee's Crochet</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
 </head>
-<body class='hangouts'>
+<body>
     <header>
         <section class='header'>
             <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
-            <h1>Welcome to HoneyBee's Hangouts</h1>
+            <h1>Welcome to The Shop</h1>
         </section>
         <nav>
             <a href='/'>Home</a>
@@ -21,14 +21,13 @@
             <a href='/about/'>About</a>
             <a href='/contact/'>Contact</a>
             <a href='/hangouts/'>HoneyBee's Hangouts</a>
-            <a href='/login/'>Log In/Sign Up</a>
+            <a href='/dashboard/'>Dashboard</a>
+            <button><a href='/logout/'>Logout</a></button>
         </nav>
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-        <h1>Welcome to HoneyBee's Hangouts</h1>
-        <h4>Here you will find a forum of sorts for crafters of all types.  Create a new post, just read and enjoy or comment and start a conversation.  Have some fun</h4>
-        <button><a href='/hangouts/login/'>LogIn/SignUp to Post or Comment</a></button>
+
     </div>
     <footer>
         <section>

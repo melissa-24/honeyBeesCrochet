@@ -21,19 +21,22 @@
             <a href='/about/'>About</a>
             <a href='/contact/'>Contact</a>
             <a href='/hangouts/'>HoneyBee's Hangouts</a>
-            <a href='/logout/'>Logout</a>
-        </nav>
-        <nav>
             <a href='/dashboard/'>Dashboard</a>
-            <a href='/theAdmin/topics/'>Topics</a>
-            <a href='/theAdmin/categories/'>Categories</a>
-            <a href='/theAdmin/products/'>Products</a>
-            <a href='/theAdmin/users/'>Users</a>
+            <button><a href='/logout/'>Logout</a></button>
         </nav>
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-
+        {% for users in allUsers %}
+        <div class='all'>
+            <h3>{{users.firstName}} {{users.lastName}}</h3>
+            <h3>{{users.username}}</h3>
+            <h4>{{users.email}}</h4>
+            {% for act in users.acct.all %}
+            <h4>{{act.acctType}}</h4>
+            {% endfor %}
+        </div>
+        {% endfor %}
     </div>
     <footer>
         <section>

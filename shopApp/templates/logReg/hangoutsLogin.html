@@ -29,7 +29,7 @@
         <div class='login'>
             <h3>To post in HoneyBee's Hangouts you will need to be logged in, but most of the site as of right now does not require this</h3>
             <nav>
-                <p>Don't have an account? <a href='/login/register/'>Sign Up</a></p>
+                <p>Don't have an account? <a href='/hangouts/register/'>Sign Up</a></p>
                 {% if messages %}
                 <section class='messages'>
                     {% for message in messages %}
@@ -38,7 +38,7 @@
                 </section>
                 {% endif %}
             </nav>
-            <form action='/login/access/' method='post'>
+            <form action='/hangouts/access/' method='post'>
                 {% csrf_token %}
                 <section>
                     <label for='username'>Username</label>

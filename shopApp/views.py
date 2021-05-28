@@ -206,8 +206,18 @@ def addCategory(request):
     return render(request, 'protected/admin/categories.html')
 
 def addTopic(request):
-    return render(request, 'protected/admin/topics.html')
+    if 'user_id' not in request.session:
+        return redirect('/login/')
+    user = User.objects.get(id=request.session['user_id'])
+    if user.acct_id == 1:
+        messages.error(request, 'Sorry you do not have access to this content')
+        return redirect('/')
+    context = {
+        'topics': Topic.objects.all().values(),
+    }
+    return render(request, 'protected/admin/topics.html', context)
 
+# ------ View All Users Landing Page ------
 def viewUsers(request):
     if 'user_id' not in request.session:
         return redirect('/login/')
@@ -219,12 +229,34 @@ def viewUsers(request):
     allUser = User.objects.all()
     acct = Acct.objects.all().values()
     context = {
-        'user': user,
-        'allUsers': allUsers,
-        'acct': acct,
+        'allUser': allUser,
     }
-    print(allUser.username)
+    # print('1111111 - user', user)
+    # print('2222222 - allUsers', allUsers)
+    # print('3333333 - allUser', allUser)
+    # print('4444444 - acct', acct)
     return render(request, 'protected/admin/users.html', context)
+
+# ------ Update user Landing Page ------
+def editUser(request, user_id):
+    oneUser = User.objects.get(id=user_id)
+    context = {
+        'editUser': oneUser,
+        'accts': Acct.objects.all().values(),
+    }
+    return render(request, 'protected/admin/editUser.html', context)
+
+# ------ Route to update user ------
+def updateUser(request, user_id):
+    toUpdate = User.objects.get(id=user_id)
+    toUpdate.firstName = request.POST['firstName']
+    toUpdate.lastName = request.POST['lastName']
+    toUpdate.email = request.POST['email']
+    toUpdate.username = request.POST['username']
+    toUpdate.acct_id = request.POST['acct_id']
+    toUpdate.save()
+    return redirect(f'/theAdmin/users/{user_id}/editUser/')
+
 
 def createProduct(request):
     pass

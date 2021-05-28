@@ -1,4 +1,4 @@
-@import 'less/base.less';
+@import 'misc/base.less';
 
 body {
     .flexcolumn();
@@ -145,6 +145,19 @@ body {
                 color: @white;
             }
         }
+        .users {
+            .flexrow();
+            flex-wrap: wrap;
+
+            .user {
+                .flexcolumn();
+                margin: 1em;
+                a {
+                    color: @misc;
+                    text-decoration: none;
+                }
+            }
+        }
     }
     footer {
         .flexcolumn();
@@ -169,8 +182,8 @@ body {
             }
     }
 }
-@import 'less/ltMode/hangouts.less';
+@import 'hangouts/hangouts.less';
 
-@import 'less/dkMode/dkMode.less';
+@import 'dkMode/dkMode.less';
 
-@import 'less/media.less';
+@import 'media/media.less';

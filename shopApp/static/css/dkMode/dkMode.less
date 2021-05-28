@@ -1,4 +1,4 @@
-@import '../base.less';
+@import '../misc/base.less';
 
 body.darkMode {
     .dkModeM();
@@ -39,7 +39,6 @@ body.darkMode {
         }
         .login {
             .dkModeF();
-            background-image: url('/static/images/dkChatBG.jpg');
         }
         .all {
             .dkModeM();
@@ -55,6 +54,13 @@ body.darkMode {
                 color: @black;
             }
         }
+        .users {
+            .user {
+                a {
+                    color: @hr;
+                }
+            }
+        }
     }
     footer {
 
@@ -66,4 +72,4 @@ body.darkMode {
     }
 }
 
-@import 'dkHangouts.less';
+@import '../hangouts/dkHangouts.less';

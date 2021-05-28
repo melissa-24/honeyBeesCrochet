@@ -27,16 +27,20 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-        {% for users in allUsers %}
-        <div class='all'>
-            <h3>{{users.firstName}} {{users.lastName}}</h3>
-            <h3>{{users.username}}</h3>
-            <h4>{{users.email}}</h4>
-            {% for act in users.acct.all %}
-            <h4>{{act.acctType}}</h4>
+        <nav>
+            <a href='/dashboard/'>Return to Dashboard</a>
+        </nav>
+        <div class='users'>
+            {% for user in allUser %}
+            <div class='user'>
+                <h3>{{user.firstName}} {{user.lastName}}</h3>
+                <p>{{user.acct.acctType}}</p>
+                <h3>{{user.username}}</h3>
+                <h4>{{user.email}}</h4>
+                <a href='/theAdmin/users/{{user.id}}/editUser/'>Edit User</a>
+            </div>
             {% endfor %}
         </div>
-        {% endfor %}
     </div>
     <footer>
         <section>

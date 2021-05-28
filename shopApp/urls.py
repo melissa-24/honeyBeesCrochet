@@ -23,6 +23,8 @@ urlpatterns = [
     path('theAdmin/categories/', views.addCategory),
     path('theAdmin/topics/', views.addTopic),
     path('theAdmin/users/', views.viewUsers),
+    path('theAdmin/users/<int:user_id>/editUser/', views.editUser),
+    path('theAdmin/users/<int:user_id>/updateUser/', views.updateUser),
     path('theAdmin/product/createProduct/', views.createProduct),
     path('theAdmin/product/<int:product_id>/', views.viewAdminProduct),
     path('theAdmin/category/createCategory/', views.createCategory),

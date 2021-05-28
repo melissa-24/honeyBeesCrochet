@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{editUser.username}}</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/styles.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
+</head>
+<body>
+    <header>
+        <section class='header'>
+            <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
+            <h1>Welcome to HoneyBee's Crochet</h1>
+        </section>
+        <nav>
+            <a href='/'>Home</a>
+            <a href='/shop/'>The Store</a>
+            <a href='/about/'>About</a>
+            <a href='/contact/'>Contact</a>
+            <a href='/hangouts/'>HoneyBee's Hangouts</a>
+            <a href='/dashboard/'>Dashboard</a>
+            <button><a href='/logout/'>Logout</a></button>
+        </nav>
+        <button class="dkMode">Toggle Light/Dark Mode</button>
+    </header>
+    <div class='main'>
+        <nav>
+            <a href='/theAdmin/users/'>Return to all Users</a>
+        </nav>
+        <div class='all'>
+            <h4>{{editUser.firstName}} {{editUser.lastName}}</h4>
+            <p>{{editUser.acct.acctType}}</p>
+            <p>{{editUser.username}}</p>
+            <p>{{editUser.email}}</p>
+        </div>
+        <div class='login'>
+            <form action='/theAdmin/users/{{editUser.id}}/updateUser/' method='post'>
+                {% csrf_token %}
+                <section>
+                    <label for='firstName'>First Name:</label>
+                    <input type='text' name='firstName' id='firstName' value='{{editUser.firstName}}'>
+                </section>
+                <section>
+                    <label for='lastName'>Last Name:</label>
+                    <input type='text' name='lastName' id='lastName' value='{{editUser.lastName}}'>
+                </section>
+                <section>
+                    <label for='username'>Username:</label>
+                    <input type='text' name='username' id='username' value='{{editUser.username}}'>
+                </section>
+                <section>
+                    <label form='email'>Email Address:</label>
+                    <input type='email' name='email' id='email' value={{editUser.email}}>
+                </section>
+                <section >
+                    <label form='acct'>Chose Your Account Type:</label>
+                    <select name='acct_id'>
+                        {% for acct in accts %}
+                        <option value='{{acct.id}}'>{{acct.acctType}}</option>
+                        {% endfor %}
+                    </select>
+                </section>
+                <button>Update User</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <section>
+            <img src='https://images.craftsnherbs.com/beelogo.jpg' alt='BeeDev Services Logo' />
+            <a href='https://beedev-services.com' target="_blank"><h4>© 2021 by BeeDev Services</h4></a>
+        </section>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

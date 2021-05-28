@@ -21,7 +21,8 @@
   text-decoration: none;
 }
 .ltModeF {
-  background-image: url('/static/images/ltChatBG.jpg');
+  background-color: #905a097e;
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
 }
@@ -222,7 +223,8 @@ body .main ul li a {
   color: #905a09;
 }
 body .main .login {
-  background-image: url('/static/images/ltChatBG.jpg');
+  background-color: #905a097e;
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
   display: flex;
@@ -272,7 +274,8 @@ body .main .all .hidden {
   margin: 0.2em;
 }
 body .main .form {
-  background-image: url('/static/images/ltChatBG.jpg');
+  background-color: #905a097e;
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
   display: flex;
@@ -309,6 +312,24 @@ body .main button {
 body .main button a {
   text-decoration: none;
   color: #fff;
+}
+body .main .users {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body .main .users .user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+body .main .users .user a {
+  color: #1a4c48;
+  text-decoration: none;
 }
 body footer {
   display: flex;
@@ -392,7 +413,6 @@ body.darkMode .main ul li a {
 body.darkMode .main .login {
   background-color: #905a097e;
   color: #fff;
-  background-image: url('/static/images/dkChatBG.jpg');
 }
 body.darkMode .main .login a {
   color: #bfdddc;
@@ -428,6 +448,9 @@ body.darkMode .main button {
 body.darkMode .main button a {
   text-decoration: none;
   color: #000;
+}
+body.darkMode .main .users .user a {
+  color: #bfdddc;
 }
 body.darkMode footer section a {
   color: #fff;

@@ -21,7 +21,8 @@
   text-decoration: none;
 }
 .ltModeF {
-  background-image: url('/static/images/ltChatBG.jpg');
+  background-color: #905a097e;
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
 }
@@ -142,7 +143,6 @@ body.darkMode .main ul li a {
 body.darkMode .main .login {
   background-color: #905a097e;
   color: #fff;
-  background-image: url('/static/images/dkChatBG.jpg');
 }
 body.darkMode .main .login a {
   color: #bfdddc;
@@ -178,6 +178,9 @@ body.darkMode .main button {
 body.darkMode .main button a {
   text-decoration: none;
   color: #000;
+}
+body.darkMode .main .users .user a {
+  color: #bfdddc;
 }
 body.darkMode footer section a {
   color: #fff;

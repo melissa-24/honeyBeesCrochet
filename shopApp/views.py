@@ -3,7 +3,7 @@ from django.contrib import messages
 from .models import *
 import bcrypt
 
-# ------------ Unprotected pages ------------
+# ------------------------ Unprotected pages ------------------------
 
 # ------ Main Landing Page ------
 def index(request):
@@ -106,7 +106,6 @@ def hangouts(request):
         return render(request, 'protected/mainPages/hangouts.html', context)
 
 # ------ Hangouts Login Landing Page ------
-# Same table as regular log in just redirects back to hangouts
 def hangoutLogin(request):
     return render(request, 'logReg/hangoutsLogin.html')
 
@@ -187,7 +186,7 @@ def dashboard(request):
 
 # ------------ Protected Admin Pages ------------
 
-# ------ Add to Store Landing Page ------
+# ------ Add Product Landing Page ------
 def addProduct(request):
     if 'user_id' not in request.session:
         return redirect('/login/')
@@ -201,10 +200,27 @@ def addProduct(request):
         }
         return render(request, 'protected/admin/products.html', context)
 
+# ------ Add Product Route ------
+def createProduct(request):
+    pass
+
+# ------ View Product Landing Page ------
+def viewAdminProduct(request):
+    pass
+
+# ------ Update Product Route ------
+def updateProduct(request):
+    pass
+
+# ------ Delete Product Route ------
+def deleteProduct(request):
+    pass
+
+# ------ Add Category Landing Page ------
 def addCategory(request):
-    
     return render(request, 'protected/admin/categories.html')
 
+# ------ Add Hangouts Topic Landing Page ------
 def addTopic(request):
     if 'user_id' not in request.session:
         return redirect('/login/')
@@ -216,6 +232,13 @@ def addTopic(request):
         'topics': Topic.objects.all().values(),
     }
     return render(request, 'protected/admin/topics.html', context)
+
+# ------ Add Topic Route ------
+def createTopic(request):
+    Topic.objects.create(
+        topicName=request.POST['topicName']
+    )
+    return redirect('/theAdmin/topics')
 
 # ------ View All Users Landing Page ------
 def viewUsers(request):
@@ -231,10 +254,6 @@ def viewUsers(request):
     context = {
         'allUser': allUser,
     }
-    # print('1111111 - user', user)
-    # print('2222222 - allUsers', allUsers)
-    # print('3333333 - allUser', allUser)
-    # print('4444444 - acct', acct)
     return render(request, 'protected/admin/users.html', context)
 
 # ------ Update user Landing Page ------
@@ -257,17 +276,7 @@ def updateUser(request, user_id):
     toUpdate.save()
     return redirect(f'/theAdmin/users/{user_id}/editUser/')
 
-
-def createProduct(request):
-    pass
-
-def viewAdminProduct(request):
-    pass
-
 def createCategory(request):
-    pass
-
-def createTopic(request):
     pass
 
 def assignCategory(request):

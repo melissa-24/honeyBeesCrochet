@@ -97,12 +97,26 @@ def signup(request):
 # ------ Hangouts Landing Page ------
 def hangouts(request):
     if 'user_id' not in request.session:
-        return render(request, 'hangouts.html')
+        posts = Post.objects.all()
+        post = Post.objects.all().values()
+        users = User.objects.all()
+        comments = Comment.objects.all()
+        context = {
+            'user': users,
+            'posts': posts,
+            'comments': comments,
+        }
+        print(post)
+        print(comments)
+        return render(request, 'hangouts.html',context)
     else:
+        posts = Post.objects.all()
         user = User.objects.get(id=request.session['user_id'])
         context = {
             'user': user,
+            'posts': Post.objects.all(),
         }
+        print(posts)
         return render(request, 'protected/mainPages/hangouts.html', context)
 
 # ------ Hangouts Login Landing Page ------
@@ -146,20 +160,6 @@ def hangoutSignup(request):
     )
     request.session['user_id'] = newUser.id
     return redirect('/hangouts/')
-
-# ------ Accounts Landing Page ------
-def theAdmin(request):
-    context = {
-        'accts': Acct.objects.all().values()
-    }
-    return render(request, 'theAdmin.html', context)
-
-# ------ Create Acct Route ------
-def createAcct(request):
-    Acct.objects.create(
-        acctType=request.POST['acctType'],
-    )
-    return redirect('/theAdmin/')
 
 # ------ User Logout ------
 def logout(request):
@@ -218,7 +218,23 @@ def deleteProduct(request):
 
 # ------ Add Category Landing Page ------
 def addCategory(request):
-    return render(request, 'protected/admin/categories.html')
+    if 'user_id' not in request.session:
+        return redirect('/login/')
+    user = User.objects.get(id=request.session['user_id'])
+    if user.acct_id == 1:
+        messages.error(request, 'Sorry you do not have access to this content')
+        return redirect('/')
+    context = {
+        'categories': Category.objects.all().values(),
+    }
+    return render(request, 'protected/admin/categories.html', context)
+
+# ------ Add Category Route ------
+def createCat(request):
+    Category.objects.create(
+        catName=request.POST['catName']
+    )
+    return redirect('/theAdmin/categories')
 
 # ------ Add Hangouts Topic Landing Page ------
 def addTopic(request):

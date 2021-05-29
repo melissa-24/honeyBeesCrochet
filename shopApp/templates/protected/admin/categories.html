@@ -27,7 +27,28 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-
+        <nav>
+            <a href='/dashboard/'>Return to Dashboard</a>
+        </nav>
+        <div class='all'>
+            <h3>Current Categories</h3>
+            {% for cat in categories %}
+            <section>
+                <p>{{cat.catName}}</p>
+                <a href='/theAdmin/categories/{{cat.id}}/editCategory/'>Edit Category</a>
+            </section>
+            {% endfor %}
+        </div>
+        <div class='form'>
+            <form action='/theAdmin/createCat/' method='post'>
+                {% csrf_token %}
+                <section>
+                    <label for='catName'>Category</label>
+                    <input name='catName' type='text'>
+                </section>
+                <button>Add Category</button>
+            </form>
+        </div>
     </div>
     <footer>
         <section>

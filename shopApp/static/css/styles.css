@@ -287,6 +287,50 @@ body .main .all section a {
   text-decoration: none;
   color: #1a4c48;
 }
+body .main .posts {
+  background-image: url('/static/images/lined-paper-2.png');
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a4c48;
+  width: 95%;
+  margin-top: 1em;
+}
+body .main .posts .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  color: #fff;
+  margin: 1em;
+}
+body .main .posts .post .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+body .main .posts .post .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+body .main .posts .post .row h3 {
+  margin-right: 3em;
+}
+body .main .posts .post .row p,
+body .main .posts .post .row button {
+  margin-left: 3em;
+}
 body .main .form {
   background-color: #905a097e;
   background-image: url('/static/images/lined-paper-2.png');

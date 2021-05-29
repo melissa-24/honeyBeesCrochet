@@ -263,7 +263,7 @@ def editUser(request, user_id):
         'editUser': oneUser,
         'accts': Acct.objects.all().values(),
     }
-    return render(request, 'protected/admin/editUser.html', context)
+    return render(request, 'protected/admin/edit/editUser.html', context)
 
 # ------ Route to update user ------
 def updateUser(request, user_id):

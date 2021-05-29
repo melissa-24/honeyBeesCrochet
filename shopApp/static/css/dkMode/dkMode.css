@@ -162,6 +162,9 @@ body.darkMode .main .all .hidden {
   width: 0.2em;
   margin: 0.2em;
 }
+body.darkMode .main .all section a {
+  color: #bfdddc;
+}
 body.darkMode .main .form {
   background-color: #905a097e;
   color: #fff;

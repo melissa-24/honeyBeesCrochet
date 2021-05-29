@@ -51,7 +51,6 @@ body {
                 padding: 1em;
             }
         }
-
         .homeImg {
             width: 70%;
             max-height: 400px;
@@ -118,6 +117,17 @@ body {
         .all {
             .ltModeM();
             .flexcolumn();
+            section {
+                .flexrow();
+
+                h3, p {
+                    margin: 1em;
+                }
+                a {
+                    text-decoration: none;
+                    color: @misc;
+                }
+            }
         }
         .form {
             .ltModeF();

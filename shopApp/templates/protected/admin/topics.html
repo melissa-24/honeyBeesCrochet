@@ -27,7 +27,29 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-
+        <nav>
+            <a href='/dashboard/'>Return to Dashboard</a>
+        </nav>
+        <div class='all'>
+            <h3>Current Topics</h3>
+            {% for topic in topics %}
+            <section>
+                <p>{{topic.topicName}}</p>
+                <a href='/theAdmin/topics/{{topic.id}}/editTopic/'>Edit Topic</a>
+            </section>
+            
+            {% endfor %}
+        </div>
+        <div class='form'>
+            <form action='/theAdmin/createTopic/' method='post'>
+                {% csrf_token %}
+                <section>
+                    <label for='topicName'>Hangout Topic</label>
+                    <input name='topicName' type='text'>
+                </section>
+                <button>Add Hangout Topic</button>
+            </form>
+        </div>
     </div>
     <footer>
         <section>

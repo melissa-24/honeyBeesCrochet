@@ -26,9 +26,14 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
+        <nav>
+            <a href='/dashboard/'>Return to Dashboard</a>
+        </nav>
         <div class='all'>
             {% for acct in accts %}
-            <h3>{{acct.acctType}}</h3>
+            <section>
+                <h3>{{acct.acctType}}</h3>
+            </section>
             {% endfor %}
         </div>
         <div class='form'>

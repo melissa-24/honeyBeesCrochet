@@ -273,6 +273,20 @@ body .main .all .hidden {
   width: 0.2em;
   margin: 0.2em;
 }
+body .main .all section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body .main .all section h3,
+body .main .all section p {
+  margin: 1em;
+}
+body .main .all section a {
+  text-decoration: none;
+  color: #1a4c48;
+}
 body .main .form {
   background-color: #905a097e;
   background-image: url('/static/images/lined-paper-2.png');
@@ -431,6 +445,9 @@ body.darkMode .main .all .hidden {
   height: 0.2em;
   width: 0.2em;
   margin: 0.2em;
+}
+body.darkMode .main .all section a {
+  color: #bfdddc;
 }
 body.darkMode .main .form {
   background-color: #905a097e;

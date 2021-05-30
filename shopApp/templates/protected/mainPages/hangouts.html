@@ -27,8 +27,35 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-        <h1>Welcome to HoneyBee's Hangouts</h1>
+        <h1>Welcome to HoneyBee's Hangouts, {{user.firstName}}</h1>
         <h4>Here you will find a forum of sorts for crafters of all types.  Create a new post, just read and enjoy or comment and start a conversation.  Have some fun</h4>
+        <div class='theForum'>
+            {% for topic in allTopics %}
+                <h4>{{topic.topicName}} Posts</h4>
+                <a href='/hangouts/{{topic.id}}/addPost/'><button>Add New Post</button></a>
+                <div class='posts'>
+                    {% for post in posts %}
+                        {% if post.postTopic_id == topic.id %}
+                            <section class='post'>
+                                <section class='row'>
+                                    <h3>{{post.postTitle}}</h3>
+                                </section>
+                                <section class='content'>
+                                    <p>{{post.postContent}}</p>
+                                </section>
+                                <section class='row'>
+                                    <h3>Post created by: {{post.postAuthor.username}}</h3>
+                                    <p>Post created at: {{post.postUpdatedAt}} EST</p>
+                                </section>
+                                    {% if post.postAuthor_id == user.id %}
+                                <a href='hangouts/post/editPost'>Edit your Post</a>
+                                    {% endif %}
+                            </section>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
     <footer>
         <section>

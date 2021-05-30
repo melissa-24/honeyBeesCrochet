@@ -29,34 +29,33 @@
         <h1>Welcome to HoneyBee's Hangouts</h1>
         <h4>Here you will find a forum of sorts for crafters of all types.  Create a new post, just read and enjoy or comment and start a conversation.  Have some fun</h4>
         <button><a href='/hangouts/login/'>LogIn/SignUp to Post or Comment</a></button>
-        <div class='posts'>
-            {% for post in posts %}
-            <section class='post'>
-                <section class='row'>
-                    <h3>{{post.postTitle}}</h3>
-                    <p>Topic: {{post.postTopic.topicName}}</p>
-                </section>
-                <section class='content'>
-                    <p>{{post.postContent}}</p>
-                </section>
-                <section class='row'>
-                    <h3>Post created by: {{post.postAuthor.username}}</h3>
-                    <p>Post created at: {{post.postUpdatedAt}}</p>
-
-                </section>
-                <section class='row'>
-                    <p>
-                        Replies: 
-                        <span>
-                            
-                        </span>
-                    </p>
-                    <button><a href='/hangouts/{{post.id}}/addComment/'>Reply</a></button>
-                </section>
-            </section>
-            <section class='comment'>
-
-            </section>
+        <div class='theForum'>
+            {% for topic in allTopics %}
+                <h4>{{topic.topicName}} Posts</h4>
+                <div class='posts'>
+                    {% for post in posts %}
+                        {% if post.postTopic_id == topic.id %}
+                            <section class='post'>
+                                <section class='row'>
+                                    <h3>{{post.postTitle}}</h3>
+                                </section>
+                                <section class='content'>
+                                    <p>{{post.postContent}}</p>
+                                </section>
+                                <section class='row'>
+                                    <h3>Post created by: {{post.postAuthor.username}}</h3>
+                                    <p>Post created at: {{post.postUpdatedAt}}</p>
+                                </section>
+                            </section>
+                        {% else %}
+                            <section class='post'>
+                                <section class='row'>
+                                    <p>No posts in this Topic yet!</p>
+                                </section>
+                            </section>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             {% endfor %}
         </div>
     </div>

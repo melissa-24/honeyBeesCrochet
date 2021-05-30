@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Post - HoneyBee's Hangouts</title>
+    <title>{{editTopic.topicName}}</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
@@ -22,34 +22,27 @@
             <a href='/contact/'>Contact</a>
             <a href='/hangouts/'>HoneyBee's Hangouts</a>
             <a href='/dashboard/'>Dashboard</a>
-            <a href='/logout/'>Logout</a>
+            <button><a href='/logout/'>Logout</a></button>
         </nav>
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-        <a href='/hangouts/'><button>Back to HoneyBee's Hangouts</button></a>
-        <h2>Add post to the following selected Topic: {{addPost.topicName}}</h2>
-        <div class='form'>
-            <form action='/hangouts/post/{{addPost.id}}/createPost/' method='post'>
+        <nav>
+            <a href='/theAdmin/topics/'>Return to all Topics</a>
+        </nav>
+        <div class='all'>
+            <h4>{{editTopic.topicName}} </h4>
+        </div>
+        <div class='login'>
+            <form action='/theAdmin/topics/{{editTopic.id}}/updateTopic/' method='post'>
                 {% csrf_token %}
                 <section>
-                    <label for='postTitle'>Give your Post a Title</label>
-                    <input name='postTitle' type='text'>
+                    <label for='topicName'>Topic Name:</label>
+                    <input type='text' name='topicName' id='topicName' value='{{editTopic.topicName}}'>
                 </section>
-                <section>
-                    <label for='postContent'>Add your post</label>
-                    <textarea name='postContent'></textarea>
-                </section>
-                <section>
-                    <label for='postAuthor'>Author</label>
-                    <input name='postAuthor' value='{{user.id}}'>
-                </section>
-                <section>
-                    <label for='postTopic'>Topic</label>
-                    <input name='postTopic' value={{addPost.id}}>
-                </section>
-                <button>Add Post</button>
+                <button>Update Topic</button>
             </form>
+            <a href='/theAdmin/topics/{{editTopic.id}}/deleteTopic/'><button>Remove Topic</button></a>
         </div>
     </div>
     <footer>

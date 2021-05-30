@@ -96,27 +96,29 @@ def signup(request):
 
 # ------ Hangouts Landing Page ------
 def hangouts(request):
+    comments = Comment.objects.all()
+    posts = Post.objects.all()
+    author = Post.objects.all().values()
+    allTopics = Topic.objects.all()
     if 'user_id' not in request.session:
-        posts = Post.objects.all()
-        post = Post.objects.all().values()
         users = User.objects.all()
-        comments = Comment.objects.all()
         context = {
             'user': users,
             'posts': posts,
             'comments': comments,
+            'allTopics': allTopics,
         }
-        print(post)
-        print(comments)
         return render(request, 'hangouts.html',context)
     else:
-        posts = Post.objects.all()
         user = User.objects.get(id=request.session['user_id'])
         context = {
             'user': user,
-            'posts': Post.objects.all(),
+            'posts': posts,
+            'allTopics': allTopics,
+            'author': author,
         }
-        print(posts)
+        print(user.firstName)
+        print(author)
         return render(request, 'protected/mainPages/hangouts.html', context)
 
 # ------ Hangouts Login Landing Page ------
@@ -186,37 +188,7 @@ def dashboard(request):
 
 # ------------ Protected Admin Pages ------------
 
-# ------ Add Product Landing Page ------
-def addProduct(request):
-    if 'user_id' not in request.session:
-        return redirect('/login/')
-    user = User.objects.get(id=request.session['user_id'])
-    if user.acct_id == 1:
-        messages.error(request, 'Sorry you do not have access to this content')
-        return redirect('/')
-    else:
-        context = {
-            'user': user,
-        }
-        return render(request, 'protected/admin/products.html', context)
-
-# ------ Add Product Route ------
-def createProduct(request):
-    pass
-
-# ------ View Product Landing Page ------
-def viewAdminProduct(request):
-    pass
-
-# ------ Update Product Route ------
-def updateProduct(request):
-    pass
-
-# ------ Delete Product Route ------
-def deleteProduct(request):
-    pass
-
-# ------ Add Category Landing Page ------
+# ------ Category Landing Page ------
 def addCategory(request):
     if 'user_id' not in request.session:
         return redirect('/login/')
@@ -235,6 +207,28 @@ def createCat(request):
         catName=request.POST['catName']
     )
     return redirect('/theAdmin/categories')
+
+# ------ Update Category Landing Page ------
+def editCat(request, category_id):
+    oneCat = Category.objects.get(id=category_id)
+    context = {
+        'editCat': oneCat,
+    }
+    return render(request, 'protected/admin/edit/editCat.html', context)
+
+# ------ Route to update Category ------
+def updateCat(request, category_id):
+    toUpdate = Category.objects.get(id=category_id)
+    toUpdate.catName = request.POST['catName']
+    toUpdate.save()
+    return redirect(f'/theAdmin/categories/{category_id}/editCat/')
+
+# ------ Route to delete Category ------
+def deleteCat(request, category_id):
+    toDelete = Category.objects.get(id=category_id)
+    toDelete.delete()
+
+    return redirect('/theAdmin/categories/')
 
 # ------ Add Hangouts Topic Landing Page ------
 def addTopic(request):
@@ -255,6 +249,28 @@ def createTopic(request):
         topicName=request.POST['topicName']
     )
     return redirect('/theAdmin/topics')
+
+# ------ Manage Topic Landing ------
+def editTopic(request, topic_id):
+    oneTopic = Topic.objects.get(id=topic_id)
+    context = {
+        'editTopic': oneTopic,
+    }
+    return render(request, 'protected/admin/edit/editTopic.html', context)
+
+# ------ Update Topic Route ------
+def updateTopic(request, topic_id):
+    toUpdate = Topic.objects.get(id=topic_id)
+    toUpdate.topicName = request.POST['topicName']
+    toUpdate.save()
+    return redirect(f'/theAdmin/topics/{topic_id}/editTopic/')
+
+# ------ Delete Topic Route ------
+def deleteTopic(request, topic_id):
+    toDelete = Topic.objects.get(id=topic_id)
+    toDelete.delete()
+
+    return redirect('/theAdmin/topics/')
 
 # ------ View All Users Landing Page ------
 def viewUsers(request):
@@ -292,17 +308,52 @@ def updateUser(request, user_id):
     toUpdate.save()
     return redirect(f'/theAdmin/users/{user_id}/editUser/')
 
-def createCategory(request):
+# ------ Add Topic Route ------
+def deleteUser(request, user_id):
+    toDelete = User.objects.get(id=user_id)
+    toDelete.delete()
+
+    return redirect('/theAdmin/users/')
+
+# ------ Add Product Landing Page ------
+def addProduct(request):
+    if 'user_id' not in request.session:
+        return redirect('/login/')
+    user = User.objects.get(id=request.session['user_id'])
+    if user.acct_id == 1:
+        messages.error(request, 'Sorry you do not have access to this content')
+        return redirect('/')
+    else:
+        context = {
+            'user': user,
+        }
+        return render(request, 'protected/admin/products.html', context)
+
+# ------ Add Product Route ------
+def createProd(request):
     pass
 
-def assignCategory(request):
+# ------ View Product Landing Page ------
+def editProd(request):
     pass
+
+# ------ Update Product Route ------
+def updateProd(request):
+    pass
+
+# ------ Delete Product Route ------
+def deleteProd(request):
+    pass
+
 
 # ------------ Protected Customer Pages ------------
 def profile(request):
     pass
 
-def updateProfile(request):
+def editProfile(request, user_id):
+    pass
+
+def updateProfile(request, user_id):
     pass
 
 def deleteProfile(request):
@@ -312,20 +363,29 @@ def deleteProfile(request):
 # ------------ Protected Hangout Pages ------------
 
 # ------ Make a Post Landing Page ------ 
-def addPost(request):
+def addPost(request, topic_id):
     if 'user_id' not in request.session:
         messages.error(request, 'You need to be logged in to post a message')
         return redirect('/hangouts/login.')
+    else:
+        user = User.objects.get(id=request.session['user_id'])
+        oneTopic = Topic.objects.get(id=topic_id)
+        context = {
+            'addPost': oneTopic,
+            'user': user,
+        }
+        return render(request, 'protected/hangouts/hangoutPost.html', context)
 
-def createPost(request):
+def createPost(request, topic_id):
     Post.objects.create(
         postTitle=request.POST['postTitle'],
         postContent=request.POST['postContent'],
-        postAuthor=request.POST['postAuthor'],
-        postTopic=request.POST['postTopic'],
+        postAuthor = User.objects.get(id=request.session['user_id']),
+        postTopic= Topic.objects.get(id=topic_id),
     )
+    return redirect('/hangouts/')
 
-def viewPost(request):
+def editPost(request):
     pass
 
 def updatePost(request):
@@ -334,14 +394,20 @@ def updatePost(request):
 def deletePost(request):
     pass
 
+def addComment(request):
+    pass
+
 def createComment(request):
     pass
 
-def viewComment(request):
+def editComment(request):
     pass
 
 def updateComment(request):
     pass
 
 def deleteComment(request):
+    pass
+
+def addLike(request):
     pass

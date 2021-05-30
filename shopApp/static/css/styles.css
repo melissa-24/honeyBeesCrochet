@@ -287,7 +287,14 @@ body .main .all section a {
   text-decoration: none;
   color: #1a4c48;
 }
-body .main .posts {
+body .main .theForum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+}
+body .main .theForum .posts {
   background-image: url('/static/images/lined-paper-2.png');
   background-color: #fff;
   color: #000;
@@ -298,8 +305,9 @@ body .main .posts {
   background-color: #1a4c48;
   width: 95%;
   margin-top: 1em;
+  min-height: 75px;
 }
-body .main .posts .post {
+body .main .theForum .posts .post {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -308,7 +316,7 @@ body .main .posts .post {
   color: #fff;
   margin: 1em;
 }
-body .main .posts .post .content {
+body .main .theForum .posts .post .content {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -316,7 +324,7 @@ body .main .posts .post .content {
   width: 100%;
   justify-content: flex-start;
 }
-body .main .posts .post .row {
+body .main .theForum .posts .post .row {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -324,11 +332,11 @@ body .main .posts .post .row {
   width: 100%;
   justify-content: flex-start;
 }
-body .main .posts .post .row h3 {
+body .main .theForum .posts .post .row h3 {
   margin-right: 3em;
 }
-body .main .posts .post .row p,
-body .main .posts .post .row button {
+body .main .theForum .posts .post .row p,
+body .main .theForum .posts .post .row button {
   margin-left: 3em;
 }
 body .main .form {

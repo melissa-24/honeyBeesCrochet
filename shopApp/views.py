@@ -117,8 +117,6 @@ def hangouts(request):
             'allTopics': allTopics,
             'author': author,
         }
-        print(user.firstName)
-        print(author)
         return render(request, 'protected/mainPages/hangouts.html', context)
 
 # ------ Hangouts Login Landing Page ------
@@ -385,20 +383,49 @@ def createPost(request, topic_id):
     )
     return redirect('/hangouts/')
 
-def editPost(request):
-    pass
+def editPost(request, post_id):
+    onePost = Post.objects.get(id=post_id)
+    context = {
+        'editPost': onePost,
+    }
+    return render(request, 'protected/hangouts/editPost.html', context)
 
-def updatePost(request):
-    pass
+def updatePost(request, post_id):
+    toUpdate = Post.objects.get(id=post_id)
+    toUpdate.postTitle = request.POST['postTitle']
+    toUpdate.postContent = request.POST['postContent']
+    toUpdate.save()
 
-def deletePost(request):
-    pass
+    return redirect('/hangouts/')
 
-def addComment(request):
-    pass
+def deletePost(request, post_id):
+    toDelete = Post.objects.get(id=post_id)
+    toDelete.delete()
 
-def createComment(request):
-    pass
+    return redirect('/hangouts/')
+
+def addComment(request, post_id):
+    if 'user_id' not in request.session:
+        messages.error(request, 'You need to be logged in to post a message')
+        return redirect('/hangouts/login.')
+    else:
+        user = User.objects.get(id=request.session['user_id'])
+    onePost = Post.objects.get(id=post_id)
+    replies = Comment.objects.all()
+    context = {
+        'addReply': onePost,
+        'replies': replies,
+        'user': user,
+    }
+    return render(request, 'protected/hangouts/postReply.html', context)
+
+def createComment(request, post_id):
+    Comment.objects.create(
+        commentContent=request.POST['commentContent'],
+        commentAuthor = User.objects.get(id=request.session['user_id']),
+        commentPost = Post.objects.get(id=post_id)
+    )
+    return redirect(f'/hangouts/{post_id}/addReply/')
 
 def editComment(request):
     pass

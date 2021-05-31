@@ -45,11 +45,20 @@
                                 </section>
                                 <section class='row'>
                                     <h3>Post created by: {{post.postAuthor.username}}</h3>
-                                    <p>Post created at: {{post.postUpdatedAt}} EST</p>
-                                </section>
+                                    <p>Post created/updated at: {{post.postUpdatedAt}} EST</p>
                                     {% if post.postAuthor_id == user.id %}
-                                <a href='hangouts/post/editPost'>Edit your Post</a>
+                                        <a href='/hangouts/post/{{post.id}}/editPost'>Edit your Post</a>
                                     {% endif %}
+                                </section>
+                                <section class='reply'>
+                                    {% for reply in comments %}
+                                        {% if reply.comment_id == post.id %}
+                                            <p>{{reply.commentContent}}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <a href='/hangouts/post/{{post.id}}/addReply/'><button>Reply</button></a>
+                                    <a href='/hangouts/post/{{post.id}}/addLike/'><button>Like this Post</button></a>
+                                </section>
                             </section>
                         {% endif %}
                     {% endfor %}

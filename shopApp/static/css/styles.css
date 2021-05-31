@@ -287,58 +287,6 @@ body .main .all section a {
   text-decoration: none;
   color: #1a4c48;
 }
-body .main .theForum {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-}
-body .main .theForum .posts {
-  background-image: url('/static/images/lined-paper-2.png');
-  background-color: #fff;
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #1a4c48;
-  width: 95%;
-  margin-top: 1em;
-  min-height: 75px;
-}
-body .main .theForum .posts .post {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  color: #fff;
-  margin: 1em;
-}
-body .main .theForum .posts .post .content {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  justify-content: flex-start;
-}
-body .main .theForum .posts .post .row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  justify-content: flex-start;
-}
-body .main .theForum .posts .post .row h3 {
-  margin-right: 3em;
-}
-body .main .theForum .posts .post .row p,
-body .main .theForum .posts .post .row button {
-  margin-left: 3em;
-}
 body .main .form {
   background-color: #905a097e;
   background-image: url('/static/images/lined-paper-2.png');
@@ -425,6 +373,62 @@ body footer section a {
 }
 .hangouts {
   background-image: url('/static/images/lined-paper-2.png');
+}
+.hangouts .main .theForum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+}
+.hangouts .main .theForum .posts {
+  background-image: url('/static/images/lined-paper-2.png');
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #58a7a4;
+  width: 95%;
+  margin-top: 1em;
+  min-height: 75px;
+}
+.hangouts .main .theForum .posts .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  color: #fff;
+  margin: 1em;
+}
+.hangouts .main .theForum .posts .post .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+.hangouts .main .theForum .posts .post .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+.hangouts .main .theForum .posts .post .row h3 {
+  margin-right: 3em;
+}
+.hangouts .main .theForum .posts .post .row p,
+.hangouts .main .theForum .posts .post .row button {
+  margin-left: 3em;
+}
+.hangouts .main .theForum .posts .post .row a {
+  margin-left: 5em;
+  color: #1a4c48;
 }
 body.darkMode {
   background-color: #000;
@@ -526,4 +530,10 @@ body.darkMode footer section a {
 }
 .hangouts.darkMode {
   background-image: url('/static/images/lined-paper-2.png');
+}
+.hangouts.darkMode .main .theForum .posts {
+  background-color: #1a4c48;
+}
+.hangouts.darkMode .main .theForum .posts .post .row a {
+  color: #bfdddc;
 }

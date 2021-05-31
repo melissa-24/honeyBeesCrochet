@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Post - HoneyBee's Hangouts</title>
+    <title>Add Reply - HoneyBee's Hangouts</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
@@ -28,27 +28,35 @@
     </header>
     <div class='main'>
         <a href='/hangouts/'><button>Back to HoneyBee's Hangouts</button></a>
-        <h2>Add post to the following selected Topic: {{addPost.topicName}}</h2>
+        <h2>Add your reply</h2>
         <div class='form'>
-            <form action='/hangouts/post/{{addPost.id}}/createPost/' method='post'>
+            <section>
+                <h4>{{addReply.postTitle}}</h4>
+                <p>{{addReply.postContent}}</p>
+                <section>
+                    {% for reply in replies %}
+                        <p>{{reply.commentContent}}</p>
+                        <p>{{reply.commentAuthor}}</p>
+                    {% endfor %}
+                </section>
+            </section>
+        </div>
+        <div class='form'>
+            <form action='/hangouts/post/{{addReply.id}}/createReply/' method='post'>
                 {% csrf_token %}
                 <section>
-                    <label for='postTitle'>Give your Post a Title</label>
-                    <input name='postTitle' type='text'>
+                    <label for='commentContent'>Add your Reply:</label>
+                    <textarea name='commentContent'></textarea>
                 </section>
                 <section>
-                    <label for='postContent'>Add your post</label>
-                    <textarea name='postContent'></textarea>
+                    <label for='commentAuthor'>Author</label>
+                    <input name='commentAuthor' value='{{user.id}}'>
                 </section>
-                <section style="display: none;">
-                    <label for='postAuthor'>Author</label>
-                    <input name='postAuthor' value='{{user.id}}'>
+                <section>
+                    <label for='commentPost'>Post</label>
+                    <input name='commentPost' value='{{addReply.id}}'>
                 </section>
-                <section style="display: none;">
-                    <label for='postTopic'>Topic</label>
-                    <input name='postTopic' value={{addPost.id}}>
-                </section>
-                <button>Add Post</button>
+                <button>Add Reply</button>
             </form>
         </div>
     </div>

@@ -191,3 +191,9 @@ body.darkMode footer section a {
 .hangouts.darkMode {
   background-image: url('/static/images/lined-paper-2.png');
 }
+.hangouts.darkMode .main .theForum .posts {
+  background-color: #1a4c48;
+}
+.hangouts.darkMode .main .theForum .posts .post .row a {
+  color: #bfdddc;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Post - HoneyBee's Hangouts</title>
+    <title>{{editPost.postTitle}} - HoneyBee's Hangouts</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
@@ -30,15 +30,20 @@
         <a href='/hangouts/'><button>Back to HoneyBee's Hangouts</button></a>
         <h2>Add post to the following selected Topic: {{addPost.topicName}}</h2>
         <div class='form'>
-            <form action='/hangouts/post/{{addPost.id}}/createPost/' method='post'>
+            <section>
+                <h3>Your current post contents:</h3>
+                <h4>{{editPost.postTitle}}</h4>
+                <p>{{editPost.postContent}}</p>
+            </section>
+            <form action='/hangouts/post/{{editPost.id}}/updatePost/' method='post'>
                 {% csrf_token %}
                 <section>
-                    <label for='postTitle'>Give your Post a Title</label>
-                    <input name='postTitle' type='text'>
+                    <label for='postTitle'>Title</label>
+                    <input name='postTitle' type='text' value='{{editPost.postTitle}}'>
                 </section>
                 <section>
-                    <label for='postContent'>Add your post</label>
-                    <textarea name='postContent'></textarea>
+                    <label for='postContent'>Your Text</label>
+                    <textarea name='postContent' value='{{editPost.postContent}}'>{{editPost.postContent}}</textarea>
                 </section>
                 <section style="display: none;">
                     <label for='postAuthor'>Author</label>
@@ -46,10 +51,11 @@
                 </section>
                 <section style="display: none;">
                     <label for='postTopic'>Topic</label>
-                    <input name='postTopic' value={{addPost.id}}>
+                    <input name='postTopic' value={{editPost.id}}>
                 </section>
-                <button>Add Post</button>
+                <button>Update Post</button>
             </form>
+            <a href='/hangouts/post/{{editPost.id}}/deletePost/'><button>Delete Post</button></a>
         </div>
     </div>
     <footer>

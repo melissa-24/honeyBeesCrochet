@@ -21,7 +21,8 @@
   text-decoration: none;
 }
 .ltModeF {
-  background-image: url('/static/images/ltChatBG.jpg');
+  background-color: #905a097e;
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
 }
@@ -91,4 +92,60 @@
 }
 .hangouts {
   background-image: url('/static/images/lined-paper-2.png');
+}
+.hangouts .main .theForum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+}
+.hangouts .main .theForum .posts {
+  background-image: url('/static/images/lined-paper-2.png');
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #58a7a4;
+  width: 95%;
+  margin-top: 1em;
+  min-height: 75px;
+}
+.hangouts .main .theForum .posts .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  color: #fff;
+  margin: 1em;
+}
+.hangouts .main .theForum .posts .post .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+.hangouts .main .theForum .posts .post .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+.hangouts .main .theForum .posts .post .row h3 {
+  margin-right: 3em;
+}
+.hangouts .main .theForum .posts .post .row p,
+.hangouts .main .theForum .posts .post .row button {
+  margin-left: 3em;
+}
+.hangouts .main .theForum .posts .post .row a {
+  margin-left: 5em;
+  color: #1a4c48;
 }

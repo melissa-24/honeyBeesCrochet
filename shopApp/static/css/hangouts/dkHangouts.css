@@ -21,7 +21,8 @@
   text-decoration: none;
 }
 .ltModeF {
-  background-image: url('/static/images/ltChatBG.jpg');
+  background-color: #905a097e;
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
 }
@@ -91,4 +92,10 @@
 }
 .hangouts.darkMode {
   background-image: url('/static/images/lined-paper-2.png');
+}
+.hangouts.darkMode .main .theForum .posts {
+  background-color: #1a4c48;
+}
+.hangouts.darkMode .main .theForum .posts .post .row a {
+  color: #bfdddc;
 }

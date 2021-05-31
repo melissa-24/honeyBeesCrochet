@@ -35,8 +35,8 @@
                 <p>{{addReply.postContent}}</p>
                 <section>
                     {% for reply in replies %}
-                        <p>{{reply.commentContent}}</p>
-                        <p>{{reply.commentAuthor}}</p>
+                        <p>{{reply.replyText}}</p>
+                        <p>{{reply.poster.username}}</p>
                     {% endfor %}
                 </section>
             </section>
@@ -45,16 +45,16 @@
             <form action='/hangouts/post/{{addReply.id}}/createReply/' method='post'>
                 {% csrf_token %}
                 <section>
-                    <label for='commentContent'>Add your Reply:</label>
-                    <textarea name='commentContent'></textarea>
+                    <label for='replyText'>Add your Reply:</label>
+                    <textarea name='replyText'></textarea>
                 </section>
-                <section>
-                    <label for='commentAuthor'>Author</label>
-                    <input name='commentAuthor' value='{{user.id}}'>
+                <section style="display: none;">
+                    <label for='poster'>Author</label>
+                    <input name='poster' value='{{user.id}}'>
                 </section>
-                <section>
-                    <label for='commentPost'>Post</label>
-                    <input name='commentPost' value='{{addReply.id}}'>
+                <section style="display: none;">
+                    <label for='replyPost'>Post</label>
+                    <input name='replyPost' value='{{addReply.id}}'>
                 </section>
                 <button>Add Reply</button>
             </form>

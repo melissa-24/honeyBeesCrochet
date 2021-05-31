@@ -44,7 +44,7 @@
                                     <p>{{post.postContent}}</p>
                                 </section>
                                 <section class='row'>
-                                    <h3>Post created by: {{post.postAuthor.username}}</h3>
+                                    <h3>Post created by: {{post.poster.username}}</h3>
                                     <p>Post created/updated at: {{post.postUpdatedAt}} EST</p>
                                     {% if post.postAuthor_id == user.id %}
                                         <a href='/hangouts/post/{{post.id}}/editPost'>Edit your Post</a>
@@ -52,8 +52,8 @@
                                 </section>
                                 <section class='reply'>
                                     {% for reply in comments %}
-                                        {% if reply.comment_id == post.id %}
-                                            <p>{{reply.commentContent}}</p>
+                                        {% if reply.reply_id == post.id %}
+                                            <p>{{reply.replyText}}</p>
                                         {% endif %}
                                     {% endfor %}
                                     <a href='/hangouts/post/{{post.id}}/addReply/'><button>Reply</button></a>

@@ -96,7 +96,7 @@ def signup(request):
 
 # ------ Hangouts Landing Page ------
 def hangouts(request):
-    comments = Comment.objects.all()
+    comments = Reply.objects.all()
     posts = Post.objects.all()
     author = Post.objects.all().values()
     allTopics = Topic.objects.all()
@@ -116,6 +116,7 @@ def hangouts(request):
             'posts': posts,
             'allTopics': allTopics,
             'author': author,
+            'comments': comments,
         }
         return render(request, 'protected/mainPages/hangouts.html', context)
 
@@ -378,7 +379,7 @@ def createPost(request, topic_id):
     Post.objects.create(
         postTitle=request.POST['postTitle'],
         postContent=request.POST['postContent'],
-        postAuthor = User.objects.get(id=request.session['user_id']),
+        poster = User.objects.get(id=request.session['user_id']),
         postTopic= Topic.objects.get(id=topic_id),
     )
     return redirect('/hangouts/')
@@ -404,14 +405,14 @@ def deletePost(request, post_id):
 
     return redirect('/hangouts/')
 
-def addComment(request, post_id):
+def addReply(request, post_id):
     if 'user_id' not in request.session:
         messages.error(request, 'You need to be logged in to post a message')
         return redirect('/hangouts/login.')
     else:
         user = User.objects.get(id=request.session['user_id'])
     onePost = Post.objects.get(id=post_id)
-    replies = Comment.objects.all()
+    replies = Reply.objects.all()
     context = {
         'addReply': onePost,
         'replies': replies,
@@ -419,21 +420,21 @@ def addComment(request, post_id):
     }
     return render(request, 'protected/hangouts/postReply.html', context)
 
-def createComment(request, post_id):
-    Comment.objects.create(
-        commentContent=request.POST['commentContent'],
-        commentAuthor = User.objects.get(id=request.session['user_id']),
-        commentPost = Post.objects.get(id=post_id)
+def createReply(request, post_id):
+    Reply.objects.create(
+        replyText=request.POST['replyText'],
+        poster = User.objects.get(id=request.session['user_id']),
+        replyPost = Post.objects.get(id=post_id)
     )
-    return redirect(f'/hangouts/{post_id}/addReply/')
+    return redirect(f'/hangouts/post/{post_id}/addReply/')
 
-def editComment(request):
+def editReply(request):
     pass
 
-def updateComment(request):
+def updateReply(request):
     pass
 
-def deleteComment(request):
+def deleteReply(request):
     pass
 
 def addLike(request):

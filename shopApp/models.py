@@ -52,18 +52,18 @@ class Topic(models.Model):
 class Post(models.Model):
     postTitle = models.CharField(max_length=255)
     postContent = models.TextField()
-    postAuthor = models.ForeignKey(User, related_name='posts', on_delete=CASCADE)
+    poster = models.ForeignKey(User, related_name='posts', on_delete=CASCADE)
     postTopic = models.ForeignKey(Topic, related_name='topics', on_delete=CASCADE)
     postLike = models.ManyToManyField(User, related_name='likes')
     postCreatedAt = models.DateTimeField(auto_now_add=True)
     postUpdatedAt = models.DateTimeField(auto_now=True)
 
-class Comment(models.Model):
-    commentContent = models.TextField()
-    commentAuthor = models.ForeignKey(User, related_name='comments', on_delete=CASCADE),
-    commentPost = models.ForeignKey(Post, related_name='thePost', on_delete=CASCADE),
-    commentCreatedAt = models.DateTimeField(auto_now_add=True)
-    commentUpdatedAt = models.DateTimeField(auto_now=True)
+class Reply(models.Model):
+    replyText = models.TextField()
+    poster = models.ForeignKey(User, related_name='comments', on_delete=CASCADE)
+    replyPost = models.ForeignKey(Post, related_name='thePost', on_delete=CASCADE)
+    replyCreatedAt = models.DateTimeField(auto_now_add=True)
+    replyUpdatedAt = models.DateTimeField(auto_now=True)
 
 
 

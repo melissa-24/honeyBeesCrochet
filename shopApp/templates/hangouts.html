@@ -44,9 +44,23 @@
                                 </section>
                                 <section class='row'>
                                     <h3>Post created by: {{post.postAuthor.username}}</h3>
-                                    <p>Post created at: {{post.postUpdatedAt}}</p>
+                                    <p>Post created/updated at: {{post.postUpdatedAt}} EST</p>
                                 </section>
-                            </section>
+                                <section class='row'>
+                                    <p>Likes: {{post.postLike.count}}</p>
+                                    <button class='showReplies'>Show Replies</button>
+                                </section>
+                                <section class='replies'>
+                                    {% for reply in comments %}
+                                        {% if reply.replyPost_id == post.id %}
+                                            <section class='row'>
+                                                <p>{{reply.replyText}}</p>
+                                                <p>{{reply.author.username}}</p>
+                                                <p>{{reply.replyUpdatedAt}}</p>
+                                            </section>  
+                                        {% endif %}
+                                    {% endfor %}
+                                </section>
                         {% endif %}
                     {% endfor %}
                 </div>

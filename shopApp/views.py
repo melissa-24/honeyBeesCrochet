@@ -106,8 +106,10 @@ def hangouts(request):
         context = {
             'user': users,
             'posts': posts,
-            'comments': comments,
             'allTopics': allTopics,
+            'author': author,
+            'comments': comments,
+            'replies': replies,
         }
         return render(request, 'hangouts.html',context)
     else:
@@ -439,5 +441,8 @@ def updateReply(request):
 def deleteReply(request):
     pass
 
-def addLike(request):
-    pass
+def addLike(request, post_id):
+    likePost = Post.objects.get(id= post_id)
+    userLike = User.objects.get(id=request.session['user_id'])
+    likePost.postLike.add(userLike)
+    return redirect('/hangouts/')

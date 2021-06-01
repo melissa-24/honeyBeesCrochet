@@ -149,3 +149,6 @@
   margin-left: 5em;
   color: #1a4c48;
 }
+.hangouts .main .theForum .posts .post .replies {
+  display: none;
+}

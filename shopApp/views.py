@@ -99,6 +99,7 @@ def hangouts(request):
     comments = Reply.objects.all()
     posts = Post.objects.all()
     author = Post.objects.all().values()
+    replies = Reply.objects.all().values()
     allTopics = Topic.objects.all()
     if 'user_id' not in request.session:
         users = User.objects.all()
@@ -117,6 +118,7 @@ def hangouts(request):
             'allTopics': allTopics,
             'author': author,
             'comments': comments,
+            'replies': replies,
         }
         return render(request, 'protected/mainPages/hangouts.html', context)
 
@@ -423,7 +425,7 @@ def addReply(request, post_id):
 def createReply(request, post_id):
     Reply.objects.create(
         replyText=request.POST['replyText'],
-        poster = User.objects.get(id=request.session['user_id']),
+        author = User.objects.get(id=request.session['user_id']),
         replyPost = Post.objects.get(id=post_id)
     )
     return redirect(f'/hangouts/post/{post_id}/addReply/')

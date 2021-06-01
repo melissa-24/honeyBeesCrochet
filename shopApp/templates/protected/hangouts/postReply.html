@@ -28,15 +28,16 @@
     </header>
     <div class='main'>
         <a href='/hangouts/'><button>Back to HoneyBee's Hangouts</button></a>
-        <h2>Add your reply</h2>
+        <h2>{{user.firstName}}, add your reply</h2>
         <div class='form'>
             <section>
                 <h4>{{addReply.postTitle}}</h4>
                 <p>{{addReply.postContent}}</p>
+                <p>{{addReply.poster.username}}</p>
                 <section>
                     {% for reply in replies %}
                         <p>{{reply.replyText}}</p>
-                        <p>{{reply.poster.username}}</p>
+                        <p>{{reply.author.username}}</p>
                     {% endfor %}
                 </section>
             </section>
@@ -49,8 +50,8 @@
                     <textarea name='replyText'></textarea>
                 </section>
                 <section style="display: none;">
-                    <label for='poster'>Author</label>
-                    <input name='poster' value='{{user.id}}'>
+                    <label for='author'>Author</label>
+                    <input name='author' value='{{user.id}}'>
                 </section>
                 <section style="display: none;">
                     <label for='replyPost'>Post</label>

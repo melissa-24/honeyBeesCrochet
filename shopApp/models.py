@@ -60,7 +60,7 @@ class Post(models.Model):
 
 class Reply(models.Model):
     replyText = models.TextField()
-    poster = models.ForeignKey(User, related_name='comments', on_delete=CASCADE)
+    author = models.ForeignKey(User, related_name='comments', on_delete=CASCADE)
     replyPost = models.ForeignKey(Post, related_name='thePost', on_delete=CASCADE)
     replyCreatedAt = models.DateTimeField(auto_now_add=True)
     replyUpdatedAt = models.DateTimeField(auto_now=True)

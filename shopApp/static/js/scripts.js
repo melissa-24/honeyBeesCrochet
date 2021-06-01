@@ -13,3 +13,11 @@ btn.addEventListener('click', function() {
     }
     localStorage.setItem('theme', theme);
 });
+
+$(document).ready(function(){
+    $('.showReplies').click(function(){
+        $('.replies').animate({
+            width: 'toggle'
+        })
+    })
+})

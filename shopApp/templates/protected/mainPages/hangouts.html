@@ -46,18 +46,29 @@
                                 <section class='row'>
                                     <h3>Post created by: {{post.poster.username}}</h3>
                                     <p>Post created/updated at: {{post.postUpdatedAt}} EST</p>
-                                    {% if post.postAuthor_id == user.id %}
+                                    {% if post.poster_id == user.id %}
                                         <a href='/hangouts/post/{{post.id}}/editPost'>Edit your Post</a>
                                     {% endif %}
                                 </section>
-                                <section class='reply'>
+                                <section class='row'>
+                                    <p>Likes: {{post.postLike.count}}</p>
+                                    <a href='/hangouts/post/{{post.id}}/addLike/'><button>Like this Post</button></a>
+                                    <a href='/hangouts/post/{{post.id}}/addReply/'><button>Reply</button></a>
+                                    <button class='showReplies'>Show Replies</button>
+                                </section>
+                                <section class='replies'>
                                     {% for reply in comments %}
-                                        {% if reply.reply_id == post.id %}
-                                            <p>{{reply.replyText}}</p>
+                                        {% if reply.replyPost_id == post.id %}
+                                            <section class='row'>
+                                                <p>{{reply.replyText}}</p>
+                                                <p>{{reply.author.username}}</p>
+                                                <p>{{reply.replyUpdatedAt}}</p>
+                                                {% if reply.author_id == user.id %}
+                                                <a href='/hangouts/reply/{{reply.id}}/editReply'>Edit your Reply</a>
+                                                {% endif %}
+                                            </section>  
                                         {% endif %}
                                     {% endfor %}
-                                    <a href='/hangouts/post/{{post.id}}/addReply/'><button>Reply</button></a>
-                                    <a href='/hangouts/post/{{post.id}}/addLike/'><button>Like this Post</button></a>
                                 </section>
                             </section>
                         {% endif %}

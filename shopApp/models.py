@@ -2,6 +2,7 @@ from django.db import models
 import re
 
 from django.db.models.deletion import CASCADE
+from django.db.models.fields import CharField
 
 # ---------- User Tables ----------
 class Acct(models.Model):
@@ -44,7 +45,14 @@ class User(models.Model):
     userCreatedAt = models.DateTimeField(auto_now_add=True)
     userUpdatedAt = models.DateTimeField(auto_now=True)
 
-
+class Profile(models.Model):
+    address1 = models.CharField(max_length=255)
+    address2 = models.CharField(max_length=255, default='Null')
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    zipCode = models.IntegerField()
+    owner = models.ForeignKey(User, related_name='profiles', on_delete=CASCADE)
+    
 # ---------- Hangouts Tables ----------
 class Topic(models.Model):
     topicName = models.CharField(max_length=255)
@@ -74,7 +82,13 @@ class Category(models.Model):
 class Product(models.Model):
     itemName = models.CharField(max_length=45)
     itemDescription = models.TextField()
-    itemPrice = models.CharField(max_length=45)
+    itemPrice = models.DecimalField(decimal_places=2, max_digits=5)
     itemImg = models.CharField(max_length=255)
-    itemCount = models.CharField(max_length=45)
-    categories = models.ManyToManyField('Category', related_name='products')
+    categories = models.ManyToManyField(Category, related_name='products')
+
+class Order(models.Model):
+    quantity = models.IntegerField()
+    totalPrice = models.DecimalField(decimal_places=2, max_digits=7)
+    itemsOrdered = models.ManyToManyField(Product, related_name='items')
+    shipping = models.ForeignKey(Profile, related_name='address', on_delete=CASCADE)
+    customer = models.ForeignKey(User, related_name='orders', on_delete=CASCADE)

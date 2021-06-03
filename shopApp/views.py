@@ -40,14 +40,20 @@ def contact(request):
 
 # ------ Shop Landing Page ------
 def shop(request):
+    allProds = Product.objects.all()
     if 'user_id' not in request.session:
-        return render(request, 'shop.html')
+        context = {
+            'allProds': allProds,
+        }
+        return render(request, 'shop.html', context)
     else:
         user = User.objects.get(id=request.session['user_id'])
         context = {
             'user': user,
+            'allProds': allProds,
         }
-        return render(request, 'protected/mainPages/shop.html')
+        print(allProds)
+        return render(request, 'protected/mainPages/shop.html', context)
 
 # ------ Login Landing Page ------
 def login(request):

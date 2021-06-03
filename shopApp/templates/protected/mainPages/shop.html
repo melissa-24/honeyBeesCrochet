@@ -27,7 +27,15 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-
+        {{user.firstName}}
+        {% for prod in allProds %}
+        <section>
+            <h4>{{prod.itemName}}</h4>
+            <p>{{prod.itemDescription}}</p>
+            <p>$ {{prod.itemPrice}}</p>
+            <img src='{{prod.itemImg}}' alt='{{prod.itemName}}' />
+        </section>
+        {% endfor %}
     </div>
     <footer>
         <section>

@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Categories</title>
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
+    <title>Profile for {{viewUser.firstName}} {{viewUser.lastName}}</title>
 </head>
 <body>
     <header>
         <section class='header'>
             <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
-            <h1>Welcome to HoneyBee's Crochet</h1>
+            <h1>HoneyBee's Crochet</h1>
         </section>
         <nav>
             <a href='/'>Home</a>
@@ -27,28 +27,26 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-        <nav>
-            <a href='/dashboard/'>Return to Dashboard</a>
-        </nav>
-        <div class='all'>
-            <h3>Current Categories</h3>
-            {% for cat in categories %}
-            <section>
-                <p>{{cat.catName}}</p>
-                <a href='/theAdmin/categories/{{cat.id}}/editCat/'>Edit Category</a>
-            </section>
-            {% endfor %}
-        </div>
-        <div class='form'>
-            <form action='/theAdmin/createCat/' method='post'>
-                {% csrf_token %}
-                <section>
-                    <label for='catName'>Category</label>
-                    <input name='catName' type='text'>
-                </section>
-                <button>Add Category</button>
+        <h1>Profile page for {{viewUser.firstName}} {{viewUser.lastName}}</h1>
+        <h3>Your information:</h3>
+        <section>
+            <h3>{{viewUser.firstName}} {{viewUser.lastName}}</h3>
+            <h3>{{viewUser.email}}</h3>
+            <h3>{{viewUser.username}}</h3>
+            <a href='dashboard/{{viewUser.id}}/editUser/'>Edit Information</a>
+        </section>
+        <h3>Your Shipping Information:</h3>
+        <section>
+            <a href='dashboard/{{viewUser.id}}/addAddress/'>Add Address</a>
+            <a href='dashboard/{{viewUser.id}}/editAddress/'>Edit Address</a>
+        </section>
+        <h3>Profile Image:</h3>
+        <section>
+            <form action='/dashboard/profileImg/' method='post' enctype='multipart/form-data'>
+            {% csrf_token %}
+            <input type='file' name='image' required>
             </form>
-        </div>
+        </section>
     </div>
     <footer>
         <section>

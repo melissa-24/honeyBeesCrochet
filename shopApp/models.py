@@ -52,6 +52,10 @@ class Profile(models.Model):
     state = models.CharField(max_length=255)
     zipCode = models.IntegerField()
     owner = models.ForeignKey(User, related_name='profiles', on_delete=CASCADE)
+
+class ProfileImage(models.Model):
+    image = models.FileField(upload_to='documents/%Y/%m/%d')
+    profile = models.ForeignKey(User, related_name='profImag', on_delete=CASCADE)
     
 # ---------- Hangouts Tables ----------
 class Topic(models.Model):
@@ -76,15 +80,12 @@ class Reply(models.Model):
 
 
 # ---------- Products Tables ----------
-class Category(models.Model):
-    catName = models.CharField(max_length=45)
 
 class Product(models.Model):
     itemName = models.CharField(max_length=45)
     itemDescription = models.TextField()
     itemPrice = models.DecimalField(decimal_places=2, max_digits=5)
     itemImg = models.CharField(max_length=255)
-    categories = models.ManyToManyField(Category, related_name='products')
 
 class Order(models.Model):
     quantity = models.IntegerField()

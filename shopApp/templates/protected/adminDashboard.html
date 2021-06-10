@@ -30,10 +30,9 @@
         <h1>Admin Dashboard for {{user.firstName}}</h1>
         <nav>
             <a href='/theAdmin/topics/'>Topics</a>
-            <a href='/theAdmin/categories/'>Categories</a>
             <a href='/theAdmin/products/'>Products</a>
             <a href='/theAdmin/users/'>Users</a>
-            <a href='/theAdmin/profile/'>Profile</a>
+            <a href='/dashboard/{{user.id}}/profile/'>Profile</a>
             <a href='/theAdmin/orders/'>Orders</a>
             <a href='/admin/' target="_blank">Admin Panel</a>
         </nav>

@@ -34,12 +34,6 @@
                 <h4>{{addReply.postTitle}}</h4>
                 <p>{{addReply.postContent}}</p>
                 <p>{{addReply.poster.username}}</p>
-                <section>
-                    {% for reply in replies %}
-                        <p>{{reply.replyText}}</p>
-                        <p>{{reply.author.username}}</p>
-                    {% endfor %}
-                </section>
             </section>
         </div>
         <div class='form'>

@@ -197,48 +197,6 @@ def dashboard(request):
 
 # ------------ Protected Admin Pages ------------
 
-# ------ Category Landing Page ------
-def addCategory(request):
-    if 'user_id' not in request.session:
-        return redirect('/login/')
-    user = User.objects.get(id=request.session['user_id'])
-    if user.acct_id == 1:
-        messages.error(request, 'Sorry you do not have access to this content')
-        return redirect('/')
-    context = {
-        'categories': Category.objects.all().values(),
-    }
-    return render(request, 'protected/admin/categories.html', context)
-
-# ------ Add Category Route ------
-def createCat(request):
-    Category.objects.create(
-        catName=request.POST['catName']
-    )
-    return redirect('/theAdmin/categories')
-
-# ------ Update Category Landing Page ------
-def editCat(request, category_id):
-    oneCat = Category.objects.get(id=category_id)
-    context = {
-        'editCat': oneCat,
-    }
-    return render(request, 'protected/admin/edit/editCat.html', context)
-
-# ------ Route to update Category ------
-def updateCat(request, category_id):
-    toUpdate = Category.objects.get(id=category_id)
-    toUpdate.catName = request.POST['catName']
-    toUpdate.save()
-    return redirect(f'/theAdmin/categories/{category_id}/editCat/')
-
-# ------ Route to delete Category ------
-def deleteCat(request, category_id):
-    toDelete = Category.objects.get(id=category_id)
-    toDelete.delete()
-
-    return redirect('/theAdmin/categories/')
-
 # ------ Add Hangouts Topic Landing Page ------
 def addTopic(request):
     if 'user_id' not in request.session:
@@ -356,8 +314,16 @@ def deleteProd(request):
 
 
 # ------------ Protected Customer Pages ------------
-def profile(request):
-    pass
+def profile(request, user_id):
+    if 'user_id' not in request.session:
+        messages.error(request, 'You need to be logged in to view this page')
+        return redirect('/login/')
+    else:
+        viewUser = User.objects.get(id=request.session['user_id'])
+        context = {
+            'viewUser': viewUser,
+        }
+        return render(request, 'protected/profile.html', context)
 
 def editProfile(request, user_id):
     pass

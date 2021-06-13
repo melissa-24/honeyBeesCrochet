@@ -1,0 +1,200 @@
+@import 'misc/base.less';
+
+body {
+    .flexcolumn();
+    .ltModeM();
+
+    button {
+        .ltModeMisc();
+        padding: .5em;
+    }
+    header {
+        .flexcolumn();
+        .ltModeN();
+        width: 95%;
+        border-bottom: 4px groove @hr;
+        
+        .header {
+            .flexrow();
+
+            img {
+                width: 3.5em;
+                margin: 1em 3em;
+            }
+            h1 {
+                margin: 1em 3em;
+            }
+        }
+        nav {
+            .flexrow();
+            a {
+                padding: 1em;
+            }
+            button {
+                a {
+                    color: @white;
+                }
+            }
+        }
+
+    }
+
+    .main {
+        .flexcolumn();
+        width: 95%;
+        margin: 1em 1.5em;
+
+        nav {
+            .flexrow();
+            .ltModeN();
+            a {
+                padding: 1em;
+            }
+        }
+        .homeImg {
+            width: 70%;
+            max-height: 400px;
+            object-fit: cover;
+            margin: 1em;
+        }
+        .homeButton {
+            margin-top: -26px;
+            width: 15em;
+            padding: .3em;
+
+            a {
+                color: @white;
+                text-decoration: none;
+            }
+        }
+        .section {
+            .flexrow();
+            margin: 1em;
+             
+            img {
+                width: 250px;
+                margin: 1em;
+            }
+
+            .aboutSection {
+                .flexcolumn();
+                margin: 1em;
+            }
+        }
+        .aboutSection {
+            .flexcolumn();
+            margin: 1em;
+        }
+        ul {
+            li {
+                margin: 1em;
+                a {
+                    text-decoration: none;
+                    color:@altnavbg;
+                }
+            }
+        }
+        .login {
+            .ltModeF();
+            .flexcolumn();
+            padding: 2em;
+            min-height: 400px;
+            width: 500px;
+
+            form {
+                .flexcolumn();
+                
+                section {
+                    .flexrow();
+                    margin: 1em;
+
+                    label {
+                        margin: 0 1em;
+                    }
+                }
+            }
+        }
+        .all {
+            .ltModeM();
+            .flexcolumn();
+
+            section {
+                .flexrow();
+
+                h3, p {
+                    margin: 1em;
+                }
+                a {
+                    text-decoration: none;
+                    color: @misc;
+                }
+            }
+        }
+        .form {
+            .ltModeF();
+            .flexcolumn();
+            padding: 2em;
+
+            form {
+                .flexcolumn();
+                
+                section {
+                    .flexrow();
+                    margin: 1em;
+
+                    label {
+                        margin: 0 1em;
+                    }
+                }
+            }
+        }
+        button {
+            .ltModeMisc();
+            padding: .5em;
+            a {
+                text-decoration: none;
+                color: @white;
+            }
+        }
+        .users {
+            .flexrow();
+            flex-wrap: wrap;
+
+            .user {
+                .flexcolumn();
+                margin: 1em;
+                a {
+                    color: @misc;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    footer {
+        .flexcolumn();
+        border-top: 4px groove @hr;
+        min-height: 3em;
+        min-width: 4em;
+        margin: 1em;
+        width: 95%;
+
+            section {
+                .flexrow();
+                margin: 1em;
+
+                img {
+                    width: 30px;
+                    margin: 1em;
+                }
+                a {
+                    color: @black;
+                    text-decoration: none;
+                }
+            }
+    }
+}
+@import 'hangouts/hangouts.less';
+
+@import 'dkMode/dkMode.less';
+
+@import 'media/media.less';

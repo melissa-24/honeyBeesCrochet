@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangouts - HoneyBee's Crochet</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/styles.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
+</head>
+<body class='hangouts'>
+    <header>
+        <section class='header'>
+            <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
+            <h1>Welcome to HoneyBee's Hangouts</h1>
+        </section>
+        <nav>
+            <a href='/'>Home</a>
+            <a href='/shop/'>The Store</a>
+            <a href='/about/'>About</a>
+            <a href='/contact/'>Contact</a>
+            <a href='/hangouts/'>HoneyBee's Hangouts</a>
+            <a href='/login/'>Log In/Sign Up</a>
+        </nav>
+        <button class="dkMode">Toggle Light/Dark Mode</button>
+    </header>
+    <div class='main'>
+        <h1>Welcome to HoneyBee's Hangouts</h1>
+        <h4>Here you will find a forum of sorts for crafters of all types.  Create a new post, just read and enjoy or comment and start a conversation.  Have some fun</h4>
+        <button><a href='/hangouts/login/'>LogIn/SignUp to Post or Comment</a></button>
+        <div class='theForum'>
+            {% for topic in allTopics %}
+                <h4>{{topic.topicName}} Posts</h4>
+                <div class='posts'>
+                    {% for post in posts %}
+                        {% if post.postTopic_id == topic.id %}
+                            <section class='post'>
+                                <section class='row'>
+                                    <h3>{{post.postTitle}}</h3>
+                                </section>
+                                <section class='content'>
+                                    <p>{{post.postContent}}</p>
+                                </section>
+                                <section class='row'>
+                                    <h3>Post created by: {{post.postAuthor.username}}</h3>
+                                    <p>Post created/updated at: {{post.postUpdatedAt}} EST</p>
+                                </section>
+                                <section class='row'>
+                                    <p>Likes: {{post.postLike.count}}</p>
+                                    <button class='showReplies'>Show Replies</button>
+                                </section>
+                                <section class='replies'>
+                                    {% for reply in comments %}
+                                        {% if reply.replyPost_id == post.id %}
+                                            <section class='row'>
+                                                <p>{{reply.replyText}}</p>
+                                                <p>{{reply.author.username}}</p>
+                                                <p>{{reply.replyUpdatedAt}}</p>
+                                            </section>  
+                                        {% endif %}
+                                    {% endfor %}
+                                </section>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+        <section>
+            <img src='https://images.craftsnherbs.com/beelogo.jpg' alt='BeeDev Services Logo' />
+            <a href='https://beedev-services.com' target="_blank"><h4>© 2021 by BeeDev Services</h4></a>
+        </section>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

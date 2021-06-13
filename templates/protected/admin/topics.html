@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Topics</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/styles.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
+</head>
+<body>
+    <header>
+        <section class='header'>
+            <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
+            <h1>Welcome to HoneyBee's Crochet</h1>
+        </section>
+        <nav>
+            <a href='/'>Home</a>
+            <a href='/shop/'>The Store</a>
+            <a href='/about/'>About</a>
+            <a href='/contact/'>Contact</a>
+            <a href='/hangouts/'>HoneyBee's Hangouts</a>
+            <a href='/dashboard/'>Dashboard</a>
+            <button><a href='/logout/'>Logout</a></button>
+        </nav>
+        <button class="dkMode">Toggle Light/Dark Mode</button>
+    </header>
+    <div class='main'>
+        <nav>
+            <a href='/dashboard/'>Return to Dashboard</a>
+        </nav>
+        <div class='all'>
+            <h3>Current Topics</h3>
+            {% for topic in topics %}
+            <section>
+                <p>{{topic.topicName}}</p>
+                <a href='/theAdmin/topics/{{topic.id}}/editTopic/'>Edit Topic</a>
+            </section>
+            {% endfor %}
+        </div>
+        <div class='form'>
+            <form action='/theAdmin/createTopic/' method='post'>
+                {% csrf_token %}
+                <section>
+                    <label for='topicName'>Hangout Topic</label>
+                    <input name='topicName' type='text'>
+                </section>
+                <button>Add Hangout Topic</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <section>
+            <img src='https://images.craftsnherbs.com/beelogo.jpg' alt='BeeDev Services Logo' />
+            <a href='https://beedev-services.com' target="_blank"><h4>© 2021 by BeeDev Services</h4></a>
+        </section>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

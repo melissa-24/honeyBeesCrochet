@@ -1,0 +1,154 @@
+.ltModeM {
+  background-color: #fff;
+  background-image: url('/crochetApp/static/images/light-honeycomb.png');
+  color: #000;
+}
+.ltModeM hr {
+  background-color: #bfdddc;
+}
+.ltModeM .hidden {
+  background-color: #1a4c48;
+  height: 0.2em;
+  width: 0.2em;
+  margin: 0.2em;
+}
+.ltModeN {
+  background-color: #f2a535;
+  color: #000;
+}
+.ltModeN a {
+  color: #1a4c48;
+  text-decoration: none;
+}
+.ltModeF {
+  background-color: #905a097e;
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  color: #000;
+  border-radius: 20%;
+}
+.ltModeF a {
+  color: #1a4c48;
+  text-decoration: none;
+}
+.ltModeH {
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-color: #fff;
+  color: #000;
+}
+.ltModeMisc {
+  background-color: #1a4c48;
+  color: #fff;
+}
+.dkModeM {
+  background-color: #000;
+  background-image: url('/crochetApp/static/images/light-honeycomb-dark.png');
+  color: #fff;
+}
+.dkModeM hr {
+  background-color: #58a7a4;
+}
+.dkModeM .hidden {
+  background-color: #1a4c48;
+  height: 0.2em;
+  width: 0.2em;
+  margin: 0.2em;
+}
+.dkModeN {
+  background-color: #905a09;
+  color: #fff;
+}
+.dkModeN a {
+  color: #bfdddc;
+  text-decoration: none;
+}
+.dkModeF {
+  background-color: #905a097e;
+  color: #fff;
+}
+.dkModeF a {
+  color: #bfdddc;
+  text-decoration: none;
+}
+.dkModeH {
+  background-color: #000;
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  color: #fff;
+}
+.dkModeMisc {
+  background-color: #fff;
+  color: #1a4c48;
+}
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hangouts {
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+}
+.hangouts .main .theForum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+}
+.hangouts .main .theForum .posts {
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #58a7a4;
+  width: 95%;
+  margin-top: 1em;
+  min-height: 75px;
+}
+.hangouts .main .theForum .posts .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  color: #fff;
+  margin: 1em;
+}
+.hangouts .main .theForum .posts .post .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+.hangouts .main .theForum .posts .post .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+.hangouts .main .theForum .posts .post .row h3 {
+  margin-right: 3em;
+}
+.hangouts .main .theForum .posts .post .row p,
+.hangouts .main .theForum .posts .post .row button {
+  margin-left: 3em;
+}
+.hangouts .main .theForum .posts .post .row a {
+  margin-left: 5em;
+  color: #1a4c48;
+}
+.hangouts .main .theForum .posts .post .replies {
+  display: none;
+}

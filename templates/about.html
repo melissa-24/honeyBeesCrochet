@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - HoneyBee's Crochet</title>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/styles.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}" />
+</head>
+<body>
+    <header>
+        <section class='header'>
+            <img src="{% static 'images/logo.png' %}" alt='HoneyBees Crochet' />
+            <h1>HoneyBee's Crochet</h1>
+        </section>
+        <nav>
+            <a href='/'>Home</a>
+            <a href='/shop/'>The Store</a>
+            <a href='/about/'>About</a>
+            <a href='/contact/'>Contact</a>
+            <a href='/hangouts/'>HoneyBee's Hangouts</a>
+            <a href='/login/'>Log In/Sign Up</a>
+        </nav>
+        <button class="dkMode">Toggle Light/Dark Mode</button>
+    </header>
+    <div class='main'>
+        <div class='section'>
+            <img src='https://images.craftsnherbs.com/melissa.png' alt='Melissa' />
+            <div class='aboutSection'>
+                <h2>About the Owner</h2>
+                <h4>I am HoneyBee, which in Greek means Melissa</h4>
+                <p>I love making amazing things with a hook and yarn</p>
+            </div>
+        </div>
+        <div class='aboutSection'>
+            <p>I have been crocheting since I was 7 years old, well over 30 year now. I love making things, more when I can make someone smile</p>
+        </div>
+    </div>
+    <footer>
+        <section>
+            <img src='https://images.craftsnherbs.com/beelogo.jpg' alt='BeeDev Services Logo' />
+            <a href='https://beedev-services.com' target="_blank"><h4>© 2021 by BeeDev Services</h4></a>
+        </section>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

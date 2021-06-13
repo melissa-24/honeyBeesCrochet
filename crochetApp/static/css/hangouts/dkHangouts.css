@@ -1,0 +1,101 @@
+.ltModeM {
+  background-color: #fff;
+  background-image: url('/crochetApp/static/images/light-honeycomb.png');
+  color: #000;
+}
+.ltModeM hr {
+  background-color: #bfdddc;
+}
+.ltModeM .hidden {
+  background-color: #1a4c48;
+  height: 0.2em;
+  width: 0.2em;
+  margin: 0.2em;
+}
+.ltModeN {
+  background-color: #f2a535;
+  color: #000;
+}
+.ltModeN a {
+  color: #1a4c48;
+  text-decoration: none;
+}
+.ltModeF {
+  background-color: #905a097e;
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  color: #000;
+  border-radius: 20%;
+}
+.ltModeF a {
+  color: #1a4c48;
+  text-decoration: none;
+}
+.ltModeH {
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-color: #fff;
+  color: #000;
+}
+.ltModeMisc {
+  background-color: #1a4c48;
+  color: #fff;
+}
+.dkModeM {
+  background-color: #000;
+  background-image: url('/crochetApp/static/images/light-honeycomb-dark.png');
+  color: #fff;
+}
+.dkModeM hr {
+  background-color: #58a7a4;
+}
+.dkModeM .hidden {
+  background-color: #1a4c48;
+  height: 0.2em;
+  width: 0.2em;
+  margin: 0.2em;
+}
+.dkModeN {
+  background-color: #905a09;
+  color: #fff;
+}
+.dkModeN a {
+  color: #bfdddc;
+  text-decoration: none;
+}
+.dkModeF {
+  background-color: #905a097e;
+  color: #fff;
+}
+.dkModeF a {
+  color: #bfdddc;
+  text-decoration: none;
+}
+.dkModeH {
+  background-color: #000;
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  color: #fff;
+}
+.dkModeMisc {
+  background-color: #fff;
+  color: #1a4c48;
+}
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hangouts.darkMode {
+  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+}
+.hangouts.darkMode .main .theForum .posts {
+  background-color: #1a4c48;
+}
+.hangouts.darkMode .main .theForum .posts .post .row a {
+  color: #bfdddc;
+}

@@ -1,7 +1,11 @@
 from django.db import models
+from django.core.validators import RegexValidator
 import re
-
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
+
+alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$',  'Only alphanumeric characters are allowed.')
 
 # ---------- User Tables ----------
 class Acct(models.Model):
@@ -43,18 +47,25 @@ class User(models.Model):
 
     userCreatedAt = models.DateTimeField(auto_now_add=True)
     userUpdatedAt = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.username
 
 class Profile(models.Model):
-    address1 = models.CharField(max_length=255)
+    address1 = models.CharField(max_length=255, null=True)
     address2 = models.CharField(max_length=255, default='Null')
-    city = models.CharField(max_length=255)
-    state = models.CharField(max_length=255)
-    zipCode = models.IntegerField()
-    owner = models.ForeignKey(User, related_name='profiles', on_delete=CASCADE)
-
-class ProfileImage(models.Model):
+    city = models.CharField(max_length=255, null=True)
+    state = models.CharField(max_length=255, null=True)
+    zipCode = models.IntegerField(null=True)
+    user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='profileImgs', default='default.jpg')
-    profile = models.OneToOneField(User, unique=True, on_delete=CASCADE)
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+def create_user_profile(sender, instance, created, **kwargs):
+    
+    if created:
+        User.objects.create(user=instance)
+        post_save.connect(create_user_profile, sender=User)
     
 # ---------- Hangouts Tables ----------
 class Topic(models.Model):

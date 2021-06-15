@@ -187,10 +187,12 @@ def dashboard(request):
     if 'user_id' not in request.session:
         return redirect('/login/')
     user = User.objects.get(id=request.session['user_id'])
+    userInfo = User.objects.all().values()
     if user.acct_id == 1:
         context = {
             'user': user,
         }
+        print(userInfo)
         return render(request, 'protected/dashboard.html', context)
     else:
         context = {
@@ -325,7 +327,6 @@ def profile(request, user_id):
         viewUser = User.objects.get(id=request.session['user_id'])
         context = {
             'viewUser': viewUser,
-            'userImg': ProfileImage.objects.all()
         }
         return render(request, 'protected/profile.html', context)
 
@@ -356,11 +357,7 @@ def updateShipping(request, user_id):
     pass
 
 def profileImg(request, user_id):
-    ProfileImage.objects.create(
-        image=request.FILES['image'],
-        profile = User.objects.get(id=request.session['user_id']),
-    )
-    return redirect(f'/dashboard/{user_id}/profile/')
+    pass
 
 # ------------ Protected Hangout Pages ------------
 

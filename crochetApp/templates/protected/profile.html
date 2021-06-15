@@ -29,27 +29,29 @@
     <div class='main'>
         <h1>Profile page for {{viewUser.firstName}} {{viewUser.lastName}}</h1>
         <h3>Your information:</h3>
-        <section>
-            <h3>{{viewUser.firstName}} {{viewUser.lastName}}</h3>
-            <h3>{{viewUser.email}}</h3>
-            <h3>{{viewUser.username}}</h3>
-            <a href='/dashboard/{{viewUser.id}}/editProfile/'>Edit Information</a>
-        </section>
-        <h3>Your Shipping Information:</h3>
-        <section>
-            <a href='dashboard/{{viewUser.id}}/addAddress/'>Add Address</a>
-            <a href='dashboard/{{viewUser.id}}/editAddress/'>Edit Address</a>
-        </section>
-        <h3>Profile Image:</h3>
-        <section>
-            <form action='/dashboard/{{viewUser.id}}/profileImg/' method='post' enctype='multipart/form-data'>
-            {% csrf_token %}
-            <input type='file' name='image' required>
-            <input type='text' value='{{viewUser.id}}'>
-            <button>Add Img</button>
-            </form>
-        </section>
-        <img src='{{userImg.image.url}}' alt='avatar image' />
+        <div class='user'>
+            <section>
+                <h3>{{viewUser.firstName}} {{viewUser.lastName}}</h3>
+                <h3>{{viewUser.email}}</h3>
+                <h3>{{viewUser.username}}</h3>
+                <a href='/dashboard/{{viewUser.id}}/editProfile/'>Edit Information</a>
+            </section>
+            <h3>Your Shipping Information:</h3>
+            <section>
+                <a href='dashboard/{{viewUser.id}}/addAddress/'>Add Address</a>
+                <a href='dashboard/{{viewUser.id}}/editAddress/'>Edit Address</a>
+            </section>
+            <h3>Profile Image:</h3>
+            <section>
+                <form action='/dashboard/{{viewUser.id}}/profileImg/' method='post' enctype='multipart/form-data'>
+                {% csrf_token %}
+                <input type='file' name='image' required>
+                <input type='text' value='{{viewUser.id}}'>
+                <button>Add Img</button>
+                </form>
+                <img src='{{ viewUser.profile.image.url }}' alt='image avatar' class='profileImg'>
+            </section>
+        </div>
     </div>
     <footer>
         <section>

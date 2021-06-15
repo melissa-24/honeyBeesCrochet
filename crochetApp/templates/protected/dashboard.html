@@ -28,9 +28,9 @@
     </header>
     <div class='main'>
         <h1>Welcome {{user.firstName}} to your Dashboard</h1>
-        <img src='{{ user.profile.image.url }}' alt='image avatar'>
+        <img src='{{ user.profile.image.url }}' alt='image avatar' class='profileImg'>
         <nav>
-            <a href='/user/profile/'>Profile</a>
+            <a href='/dashboard/{{user.id}}/profile/'>Profile</a>
             <a href='/user/orders/'>Order History</a>
         </nav>
     </div>

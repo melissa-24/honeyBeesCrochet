@@ -160,6 +160,11 @@ body .main {
   width: 95%;
   margin: 1em 1.5em;
 }
+body .main .profileImg {
+  border-radius: 50%;
+  max-width: 125px;
+  margin: 1em;
+}
 body .main nav {
   display: flex;
   flex-direction: row;

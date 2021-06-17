@@ -134,6 +134,14 @@ body.darkMode .main nav a {
 body.darkMode .main nav a {
   padding: 1em;
 }
+body.darkMode .main .profile .info {
+  background-color: #905a09;
+  color: #fff;
+}
+body.darkMode .main .profile .info a {
+  color: #bfdddc;
+  text-decoration: none;
+}
 body.darkMode .main .homeButton a {
   color: #1a4c48;
 }

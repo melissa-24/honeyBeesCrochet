@@ -43,8 +43,8 @@
                                 <section class='content'>
                                     <p>{{post.postContent}}</p>
                                 </section>
-                                <section class='row'>
-                                    <h3>Post created by: {{post.poster.username}}</h3>
+                                <section class='row hang'>
+                                    <h3 class='hang'>Post created by: <img src='{{ user.profile.image.url }}' alt='image avatar' class='hangImg'> {{post.poster.username}}</h3>
                                     <p>Post created/updated at: {{post.postUpdatedAt}} EST</p>
                                     {% if post.poster_id == user.id %}
                                         <a href='/hangouts/post/{{post.id}}/editPost'>Edit your Post</a>

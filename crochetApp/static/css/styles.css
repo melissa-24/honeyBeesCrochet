@@ -160,6 +160,34 @@ body .main {
   width: 95%;
   margin: 1em 1.5em;
 }
+body .main .profImg {
+  max-width: 100px;
+  border-radius: 50%;
+}
+body .main .profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+body .main .profile .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2a535;
+  color: #000;
+  align-items: flex-start;
+  margin: 1em;
+  padding: 1em;
+  border: 2px groove #bfdddc;
+}
+body .main .profile .info a {
+  color: #1a4c48;
+  text-decoration: none;
+}
 body .main nav {
   display: flex;
   flex-direction: row;
@@ -167,6 +195,7 @@ body .main nav {
   align-items: center;
   background-color: #f2a535;
   color: #000;
+  margin-bottom: 1em;
 }
 body .main nav a {
   color: #1a4c48;
@@ -287,6 +316,33 @@ body .main .all section a {
   text-decoration: none;
   color: #1a4c48;
 }
+body .main .allprods {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body .main .allprods .prods {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  border: 3px groove #bfdddc;
+  margin: 0.5em;
+}
+body .main .allprods .prods section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+body .main .allprods .prods img {
+  max-width: 200px;
+  margin: 1em;
+}
 body .main .form {
   background-color: #905a097e;
   background-image: url('/crochetApp/static/images/lined-paper-2.png');
@@ -374,6 +430,10 @@ body footer section a {
 .hangouts {
   background-image: url('/crochetApp/static/images/lined-paper-2.png');
 }
+.hangouts .main .hangImg {
+  max-width: 50px;
+  border-radius: 50%;
+}
 .hangouts .main .theForum {
   display: flex;
   flex-direction: column;
@@ -430,6 +490,9 @@ body footer section a {
   margin-left: 5em;
   color: #1a4c48;
 }
+.hangouts .main .theForum .posts .post .hang {
+  align-items: baseline;
+}
 .hangouts .main .theForum .posts .post .replies {
   display: none;
 }
@@ -476,6 +539,14 @@ body.darkMode .main nav a {
 }
 body.darkMode .main nav a {
   padding: 1em;
+}
+body.darkMode .main .profile .info {
+  background-color: #905a09;
+  color: #fff;
+}
+body.darkMode .main .profile .info a {
+  color: #bfdddc;
+  text-decoration: none;
 }
 body.darkMode .main .homeButton a {
   color: #1a4c48;

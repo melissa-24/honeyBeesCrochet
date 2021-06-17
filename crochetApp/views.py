@@ -292,18 +292,26 @@ def addProduct(request):
     if 'user_id' not in request.session:
         return redirect('/login/')
     user = User.objects.get(id=request.session['user_id'])
+    products = Product.objects.all().values()
     if user.acct_id == 1:
         messages.error(request, 'Sorry you do not have access to this content')
         return redirect('/')
     else:
         context = {
             'user': user,
+            'products': products,
         }
         return render(request, 'protected/admin/products.html', context)
 
 # ------ Add Product Route ------
 def createProd(request):
-    pass
+    Product.objects.create(
+        itemName=request.POST['itemName'],
+        itemDescription=request.POST['itemDescription'],
+        itemPrice=request.POST['itemPrice'],
+        itemImg=request.POST['itemImg'],
+    )
+    return redirect('/theAdmin/products/')
 
 # ------ View Product Landing Page ------
 def editProd(request):
@@ -350,14 +358,16 @@ def updateProfile(request, user_id):
     toUpdate.save()
     return redirect(f'/dashboard/{user_id}/profile/')
 
-def editShipping(request, user_id):
-    pass
-
-def updateShipping(request, user_id):
-    pass
-
 def profileImg(request, user_id):
-    pass
+    userProfile = User.objects.get(id=request.session['user_id'])
+    userProfile.profile.address1 = request.POST['address1']
+    userProfile.profile.address2 = request.POST['address2']
+    userProfile.profile.city = request.POST['city']
+    userProfile.profile.state = request.POST['state']
+    userProfile.profile.zipCode = request.POST['zipCode']
+    userProfile.profile.image = request.FILES['image']
+    userProfile.save()
+    return redirect(f'/dashboard/{user_id}/profile/')
 
 # ------------ Protected Hangout Pages ------------
 

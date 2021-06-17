@@ -37,6 +37,7 @@
                 <p>{{user.acct.acctType}}</p>
                 <h3>{{user.username}}</h3>
                 <h4>{{user.email}}</h4>
+                <img src='{{ user.profile.image.url}}' alt='image avatar' class='profImg' >
                 <a href='/theAdmin/users/{{user.id}}/editUser/'>Edit User</a>
             </div>
             {% endfor %}

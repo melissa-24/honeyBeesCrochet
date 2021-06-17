@@ -27,7 +27,44 @@
         <button class="dkMode">Toggle Light/Dark Mode</button>
     </header>
     <div class='main'>
-
+        <nav>
+            <a href='/dashboard/'>Return to Dashboard</a>
+        </nav>
+        <div class='form'>
+            <form action='/theAdmin/product/createProd/' method='post'>
+                {% csrf_token %}
+                <section>
+                    <label for='itemName'>Item: </label>
+                    <input type='text' name='itemName'>
+                </section>
+                <section>
+                    <label for='itemDescription'>Description: </label>
+                    <textarea name='itemDescription'></textarea>
+                </section>
+                <section>
+                    <label for='itemPrice'>Price:</label>
+                    <input type='text' name='itemPrice'>
+                </section>
+                <section>
+                    <label for='itemImg'>Image Link: </label>
+                    <input type='text' name='itemImg'>
+                </section>
+                <button>Add Product</button>
+            </form>
+        </div>
+        <h3>Current Products: </h3>
+        <div class='all allprods'>
+            {% for prod in products %}
+            <div class='prods'>
+                <section>
+                    <h4>{{prod.itemName}}</h4>
+                    <h4>${{prod.itemPrice}}</h4>
+                    <p>{{prod.itemDescription}}</p>
+                </section>
+                <img src='{{prod.itemImg}}' alt='{{prod.itemName}}'>
+            </div>
+            {% endfor %}
+        </div>
     </div>
     <footer>
         <section>

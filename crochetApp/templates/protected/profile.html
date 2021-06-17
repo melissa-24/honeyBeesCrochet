@@ -28,28 +28,63 @@
     </header>
     <div class='main'>
         <h1>Profile page for {{viewUser.firstName}} {{viewUser.lastName}}</h1>
-        <h3>Your information:</h3>
-        <section>
-            <h3>{{viewUser.firstName}} {{viewUser.lastName}}</h3>
-            <h3>{{viewUser.email}}</h3>
-            <h3>{{viewUser.username}}</h3>
-            <a href='/dashboard/{{viewUser.id}}/editProfile/'>Edit Information</a>
-        </section>
-        <h3>Your Shipping Information:</h3>
-        <section>
-            <a href='dashboard/{{viewUser.id}}/addAddress/'>Add Address</a>
-            <a href='dashboard/{{viewUser.id}}/editAddress/'>Edit Address</a>
-        </section>
-        <h3>Profile Image:</h3>
-        <section>
+        <div class='profile'>
+            <section class='info'>
+                <h3>Your information:</h3>
+                <section>
+                    <h3>{{viewUser.firstName}} {{viewUser.lastName}}</h3>
+                    <h3>{{viewUser.email}}</h3>
+                    <h3>{{viewUser.username}}</h3>
+                    <a href='/dashboard/{{viewUser.id}}/editProfile/'>Edit Information</a>
+                </section>
+            </section>
+            <section class='info'>
+                <h3>Your Shipping Information:</h3>
+                    <section>
+                        <h4>Address Line 1: {{viewUser.profile.address1}}</h4>
+                        <h4>Address Line 2: {{viewUser.profile.address2}}</h4>
+                        <h4>City: {{viewUser.profile.city}}</h4>
+                        <h4>State: {{viewUser.profile.state}}</h4>
+                        <h4>Zip Code: {{viewUser.profile.zipCode}}</h4>
+                    </section>
+            </section>
+            <section class='info'>
+                <h3>Profile Image:</h3>
+                <img src='{{ viewUser.profile.image.url}}' alt='image avatar' class='profImg' >
+            </section>
+        </div>
+        <div class='login'>
+            <h3>Update Shipping/Profile Image:</h3>
             <form action='/dashboard/{{viewUser.id}}/profileImg/' method='post' enctype='multipart/form-data'>
             {% csrf_token %}
-            <input type='file' name='image' required>
-            <input type='text' value='{{viewUser.id}}'>
+            <section>
+                <label for='address1'>Address Line 1: </label>
+                <input type='text' name='address1' value='{{viewUser.profile.address1}}'>
+            </section>
+            <section>
+                <label for='address2'>Address Line 2: </label>
+                <input type='text' name='address2' value='{{viewUser.profile.address2}}'>
+            </section>
+            <section>
+                <label for='city'>City: </label>
+                <input type='text' name='city' value='{{viewUser.profile.city}}'>
+            </section>
+            <section>
+                <label for='state'>State: </label>
+                <input type='text' name='state' value='{{viewUser.profile.state}}'>
+            </section>
+            <section>
+                <label for='zipCode'>Zip Code: </label>
+                <input type='text' name='zipCode' value='{{viewUser.profile.zipCode}}'>
+            </section>
+            <section>
+                <input type='file' name='image' required>
+                <input type='text' value='{{viewUser.id}}' style="display: none;">
+            </section>
             <button>Add Img</button>
             </form>
-        </section>
-        <img src='{{userImg.image.url}}' alt='avatar image' />
+        </div>
+        
     </div>
     <footer>
         <section>

@@ -93,6 +93,10 @@
 .hangouts {
   background-image: url('/crochetApp/static/images/lined-paper-2.png');
 }
+.hangouts .main .hangImg {
+  max-width: 50px;
+  border-radius: 50%;
+}
 .hangouts .main .theForum {
   display: flex;
   flex-direction: column;
@@ -148,6 +152,9 @@
 .hangouts .main .theForum .posts .post .row a {
   margin-left: 5em;
   color: #1a4c48;
+}
+.hangouts .main .theForum .posts .post .hang {
+  align-items: baseline;
 }
 .hangouts .main .theForum .posts .post .replies {
   display: none;

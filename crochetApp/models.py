@@ -55,7 +55,7 @@ class Profile(models.Model):
     address2 = models.CharField(max_length=255, default='Null')
     city = models.CharField(max_length=255, null=True)
     state = models.CharField(max_length=255, null=True)
-    zipCode = models.IntegerField(null=True)
+    zipCode = models.IntegerField(null=True, default=0)
     user = models.OneToOneField(User, unique=True, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='profileImgs', default='default.jpg')
     def __str__(self):
@@ -94,12 +94,12 @@ class Reply(models.Model):
 class Product(models.Model):
     itemName = models.CharField(max_length=45)
     itemDescription = models.TextField()
-    itemPrice = models.DecimalField(decimal_places=2, max_digits=5)
+    itemPrice = models.IntegerField()
     itemImg = models.CharField(max_length=255)
 
 class Order(models.Model):
     quantity = models.IntegerField()
-    totalPrice = models.DecimalField(decimal_places=2, max_digits=7)
+    totalPrice = models.IntegerField()
     itemsOrdered = models.ManyToManyField(Product, related_name='items')
     shipping = models.ForeignKey(Profile, related_name='address', on_delete=CASCADE)
     customer = models.ForeignKey(User, related_name='orders', on_delete=CASCADE)

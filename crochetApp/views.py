@@ -60,7 +60,7 @@ def shop(request):
 
 # ------ Login Landing Page ------
 def login(request):
-    return render(request, 'logreg/login.html')
+    return render(request, 'logReg/login.html')
 
 # ------ Login Route ------
 def access(request):

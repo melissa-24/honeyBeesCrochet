@@ -1,6 +1,6 @@
 .ltModeM {
   background-color: #fff;
-  background-image: url('/crochetApp/static/images/light-honeycomb.png');
+  background-image: url('/static/images/light-honeycomb.png');
   color: #000;
 }
 .ltModeM hr {
@@ -22,7 +22,7 @@
 }
 .ltModeF {
   background-color: #905a097e;
-  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
 }
@@ -31,7 +31,7 @@
   text-decoration: none;
 }
 .ltModeH {
-  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-image: url('/static/images/lined-paper-2.png');
   background-color: #fff;
   color: #000;
 }
@@ -41,7 +41,7 @@
 }
 .dkModeM {
   background-color: #000;
-  background-image: url('/crochetApp/static/images/light-honeycomb-dark.png');
+  background-image: url('/static/images/light-honeycomb-dark.png');
   color: #fff;
 }
 .dkModeM hr {
@@ -71,7 +71,7 @@
 }
 .dkModeH {
   background-color: #000;
-  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-image: url('/static/images/lined-paper-2.png');
   color: #fff;
 }
 .dkModeMisc {
@@ -96,7 +96,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  background-image: url('/crochetApp/static/images/light-honeycomb.png');
+  background-image: url('/static/images/light-honeycomb.png');
   color: #000;
 }
 body hr {
@@ -253,7 +253,7 @@ body .main ul li a {
 }
 body .main .login {
   background-color: #905a097e;
-  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
   display: flex;
@@ -286,7 +286,7 @@ body .main .login form section label {
 }
 body .main .all {
   background-color: #fff;
-  background-image: url('/crochetApp/static/images/light-honeycomb.png');
+  background-image: url('/static/images/light-honeycomb.png');
   color: #000;
   display: flex;
   flex-direction: column;
@@ -345,7 +345,7 @@ body .main .allprods .prods img {
 }
 body .main .form {
   background-color: #905a097e;
-  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-image: url('/static/images/lined-paper-2.png');
   color: #000;
   border-radius: 20%;
   display: flex;
@@ -428,7 +428,7 @@ body footer section a {
   text-decoration: none;
 }
 .hangouts {
-  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-image: url('/static/images/lined-paper-2.png');
 }
 .hangouts .main .hangImg {
   max-width: 50px;
@@ -442,7 +442,7 @@ body footer section a {
   width: 95%;
 }
 .hangouts .main .theForum .posts {
-  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-image: url('/static/images/lined-paper-2.png');
   background-color: #fff;
   color: #000;
   display: flex;
@@ -498,7 +498,7 @@ body footer section a {
 }
 body.darkMode {
   background-color: #000;
-  background-image: url('/crochetApp/static/images/light-honeycomb-dark.png');
+  background-image: url('/static/images/light-honeycomb-dark.png');
   color: #fff;
 }
 body.darkMode hr {
@@ -564,7 +564,7 @@ body.darkMode .main .login a {
 }
 body.darkMode .main .all {
   background-color: #000;
-  background-image: url('/crochetApp/static/images/light-honeycomb-dark.png');
+  background-image: url('/static/images/light-honeycomb-dark.png');
   color: #fff;
 }
 body.darkMode .main .all hr {
@@ -603,7 +603,7 @@ body.darkMode footer section a {
   color: #fff;
 }
 .hangouts.darkMode {
-  background-image: url('/crochetApp/static/images/lined-paper-2.png');
+  background-image: url('/static/images/lined-paper-2.png');
 }
 .hangouts.darkMode .main .theForum .posts {
   background-color: #1a4c48;

@@ -1,0 +1,1 @@
+KEY='django-insecure-wmq+dbru6%yd2p#l$14mi1#(5b=at#nf=*jxlxq#)w!*v(#zn9'

@@ -1,0 +1,5 @@
+django
+bcrypt
+pillow
+gunicorn
+django-heroku

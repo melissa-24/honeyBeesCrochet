@@ -95,15 +95,14 @@ class Product(models.Model):
     itemName = models.CharField(max_length=45)
     itemDescription = models.TextField()
     itemPrice = models.IntegerField()
+    itemForm = models.CharField(max_length=500, default='https://forms.gle/9TSjyGs3udM8Gya17')
     itemImg = models.CharField(max_length=255)
 
 class Order(models.Model):
-    quantity = models.IntegerField()
-    totalPrice = models.IntegerField()
-    itemsOrdered = models.ManyToManyField(Product, related_name='items')
-    shipping = models.ForeignKey(Profile, related_name='address', on_delete=CASCADE)
-    customer = models.ForeignKey(User, related_name='orders', on_delete=CASCADE)
+    invoice = models.FileField(upload_to='invoices')
+    user = models.ManyToManyField(User, related_name='orders')
 
+# ---------- Blog Tables ----------
 STATUS = (
     (0,"Draft"),
     (1,"Publish")

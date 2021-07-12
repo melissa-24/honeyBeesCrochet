@@ -36,7 +36,10 @@
                         <p>{{prod.itemDescription}}</p>
                         <p>${{prod.itemPrice}}</p>
                     </section>
-                    <img src='{{prod.itemImg}}' alt='{{prod.itemName}}' />
+                    <section>
+                        <img src='{{prod.itemImg}}' alt='{{prod.itemName}}' />
+                        <a href='{{prod.itemForm}}' target="_blank">Order</a>
+                    </section>
                 </div>
             {% endfor %}
         </div>
